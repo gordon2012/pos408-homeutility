@@ -32,6 +32,7 @@ Partial Class MainForm
         Me.txtHours = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtCost = New System.Windows.Forms.TextBox()
+        Me.txtRating = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -128,11 +129,21 @@ Partial Class MainForm
         Me.txtCost.Size = New System.Drawing.Size(164, 26)
         Me.txtCost.TabIndex = 9
         '
+        'txtRating
+        '
+        Me.txtRating.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRating.Location = New System.Drawing.Point(12, 150)
+        Me.txtRating.Name = "txtRating"
+        Me.txtRating.ReadOnly = True
+        Me.txtRating.Size = New System.Drawing.Size(193, 26)
+        Me.txtRating.TabIndex = 10
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(803, 519)
+        Me.Controls.Add(Me.txtRating)
         Me.Controls.Add(Me.txtCost)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtHours)
@@ -159,5 +170,6 @@ Partial Class MainForm
     Friend WithEvents txtHours As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents txtCost As System.Windows.Forms.TextBox
+    Friend WithEvents txtRating As System.Windows.Forms.TextBox
 
 End Class

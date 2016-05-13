@@ -1,36 +1,34 @@
 ﻿Public Class MainForm
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        ' Initialize appliance names and min max values
+        ' Initialize appliance names and base values from Appliancefigures.xls
 
-        Dim applianceList As New Dictionary(Of Double, String)()
+        Dim applianceList As New Dictionary(Of String, Double)()
 
-        applianceList.Add(0.11, "Refrigerator")
+        ' applianceList.Add("Electric Wok", 1.2)
+        ' applianceList.Add("Coffee maker", 0.8)
+        ' applianceList.Add("Hot plate", 1.2)
+        applianceList.Add("Refrigerator", 0.11)
+        ' applianceList.Add("Deep freezer", 0.19)
+        applianceList.Add("Hair dryer", 1.5)
+        applianceList.Add("Television", 0.31)
+        ' applianceList.Add("Stereo", 0.15)
+        applianceList.Add("Desktop computer", 0.09)
+        applianceList.Add("Fan", 0.2)
+        ' applianceList.Add("Space heater", 1.5)
+        ' applianceList.Add("Washing machine", 0.45)
+        ' applianceList.Add("Clothes dryer", 2.7)
+        ' applianceList.Add("Water heater ", 0.56)
+        ' applianceList.Add("Dehumidifier", 0.76)
+        applianceList.Add("Microwave(1000W)", 1.0)
+        ' applianceList.Add("Toaster", 0.9)
 
         cmbAppliance.DataSource = New BindingSource(applianceList, Nothing)
-        cmbAppliance.DisplayMember = "Value"
-        cmbAppliance.ValueMember = "Key"
+        cmbAppliance.DisplayMember = "Key"
+        cmbAppliance.ValueMember = "Value"
 
 
-
-
-
-
-
-
-
-        'txtCost.Text = "Test1"
-
-        'cmbAppliance.
-
-        'Refrigerator
-        'Hair Dryer
-        'Fan
-        'Microwave
-        'Computer
-        'Television
-
-
+        txtRating.Text = cmbAppliance.SelectedValue.ToString()
 
     End Sub
 
@@ -41,8 +39,11 @@
 
         ' Calculate daily cost
 
-        ' MessageBox.Show()
-        ' TODO: test to make sure key and valus work
+
+    End Sub
+
+    Private Sub cmbAppliance_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAppliance.SelectedIndexChanged
+        txtRating.Text = cmbAppliance.SelectedValue.ToString()
 
     End Sub
 End Class
