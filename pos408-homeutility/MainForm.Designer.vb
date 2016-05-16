@@ -22,11 +22,10 @@ Partial Class MainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbAppliance = New System.Windows.Forms.ComboBox()
-        Me.txtRating = New System.Windows.Forms.TextBox()
         Me.btnCalculate = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtHours = New System.Windows.Forms.TextBox()
@@ -38,8 +37,13 @@ Partial Class MainForm
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.txtRating = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.lblError = New System.Windows.Forms.Label()
+        Me.tmrError = New System.Windows.Forms.Timer(Me.components)
+        Me.lblDebug = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -66,14 +70,6 @@ Partial Class MainForm
         Me.cmbAppliance.Size = New System.Drawing.Size(198, 28)
         Me.cmbAppliance.TabIndex = 1
         '
-        'txtRating
-        '
-        Me.txtRating.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRating.Location = New System.Drawing.Point(124, 7)
-        Me.txtRating.Name = "txtRating"
-        Me.txtRating.Size = New System.Drawing.Size(126, 26)
-        Me.txtRating.TabIndex = 2
-        '
         'btnCalculate
         '
         Me.btnCalculate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -83,16 +79,6 @@ Partial Class MainForm
         Me.btnCalculate.TabIndex = 3
         Me.btnCalculate.Text = "Calculate"
         Me.btnCalculate.UseVisualStyleBackColor = True
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(10, 10)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(108, 20)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Power Rating:"
         '
         'Label3
         '
@@ -195,15 +181,23 @@ Partial Class MainForm
         Me.Panel5.Size = New System.Drawing.Size(300, 40)
         Me.Panel5.TabIndex = 16
         '
-        'Panel6
+        'txtRating
         '
-        Me.Panel6.Controls.Add(Me.Label7)
-        Me.Panel6.Controls.Add(Me.Label2)
-        Me.Panel6.Controls.Add(Me.txtRating)
-        Me.Panel6.Location = New System.Drawing.Point(318, 126)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(300, 40)
-        Me.Panel6.TabIndex = 16
+        Me.txtRating.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRating.Location = New System.Drawing.Point(124, 7)
+        Me.txtRating.Name = "txtRating"
+        Me.txtRating.Size = New System.Drawing.Size(126, 26)
+        Me.txtRating.TabIndex = 2
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(10, 10)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(108, 20)
+        Me.Label2.TabIndex = 4
+        Me.Label2.Text = "Power Rating:"
         '
         'Label7
         '
@@ -215,11 +209,49 @@ Partial Class MainForm
         Me.Label7.TabIndex = 5
         Me.Label7.Text = "kWh"
         '
+        'Panel6
+        '
+        Me.Panel6.Controls.Add(Me.Label7)
+        Me.Panel6.Controls.Add(Me.Label2)
+        Me.Panel6.Controls.Add(Me.txtRating)
+        Me.Panel6.Location = New System.Drawing.Point(318, 126)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(300, 40)
+        Me.Panel6.TabIndex = 16
+        '
+        'lblError
+        '
+        Me.lblError.AutoSize = True
+        Me.lblError.BackColor = System.Drawing.Color.Black
+        Me.lblError.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblError.ForeColor = System.Drawing.Color.Red
+        Me.lblError.Location = New System.Drawing.Point(22, 237)
+        Me.lblError.Name = "lblError"
+        Me.lblError.Size = New System.Drawing.Size(0, 20)
+        Me.lblError.TabIndex = 17
+        '
+        'tmrError
+        '
+        Me.tmrError.Interval = 3000
+        '
+        'lblDebug
+        '
+        Me.lblDebug.AutoSize = True
+        Me.lblDebug.BackColor = System.Drawing.Color.Black
+        Me.lblDebug.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDebug.ForeColor = System.Drawing.Color.Red
+        Me.lblDebug.Location = New System.Drawing.Point(314, 237)
+        Me.lblDebug.Name = "lblDebug"
+        Me.lblDebug.Size = New System.Drawing.Size(0, 20)
+        Me.lblDebug.TabIndex = 18
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(632, 334)
+        Me.Controls.Add(Me.lblDebug)
+        Me.Controls.Add(Me.lblError)
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel4)
@@ -245,9 +277,7 @@ Partial Class MainForm
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents cmbAppliance As System.Windows.Forms.ComboBox
-    Friend WithEvents txtRating As System.Windows.Forms.TextBox
     Friend WithEvents btnCalculate As System.Windows.Forms.Button
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents txtHours As System.Windows.Forms.TextBox
@@ -259,7 +289,12 @@ Partial Class MainForm
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents Panel5 As System.Windows.Forms.Panel
-    Friend WithEvents Panel6 As System.Windows.Forms.Panel
+    Friend WithEvents txtRating As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Panel6 As System.Windows.Forms.Panel
+    Friend WithEvents lblError As System.Windows.Forms.Label
+    Friend WithEvents tmrError As System.Windows.Forms.Timer
+    Friend WithEvents lblDebug As System.Windows.Forms.Label
 
 End Class

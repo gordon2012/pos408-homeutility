@@ -2,7 +2,50 @@
 
     ' TODO: title
 
+    Private Function ValidateIsNumber(control As Control, ByRef value As Double) As Boolean
+        If Double.TryParse(control.Text, value) Then
+            Return True
+        Else
+            LogError(control, "ERROR: " + control.Name + " value must be a number." + vbNewLine)
+            Return False
+        End If
+    End Function
 
+    ' TODO
+    '
+    Private Sub ValidateRange()
+
+        ' 1.5 -> 1.2-1.8 @ 20%
+        ' 0.09
+
+
+    End Sub
+
+    Private Sub LogError(control As Control, text As String)
+        control.ForeColor = Color.Red
+        control.BackColor = Color.Black
+        lblError.Text += text
+        tmrError.Enabled = True
+    End Sub
+
+    Private Sub ResetError()
+        txtHours.ForeColor = Color.Black
+        txtHours.BackColor = Color.White
+
+        txtCost.ForeColor = Color.Black
+        txtCost.BackColor = Color.White
+
+        txtRating.ForeColor = Color.Black
+        txtRating.BackColor = Color.White
+
+        lblError.Text = ""
+        tmrError.Enabled = False
+    End Sub
+
+
+    ' /******************
+    '  * EVENT HANDLERS *
+    '  ******************/
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -22,7 +65,6 @@
         cmbAppliance.ValueMember = "Value"
 
         txtRating.Text = cmbAppliance.SelectedValue.ToString()
-
     End Sub
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
@@ -30,30 +72,32 @@
         ' Validate cost value
         ' TODO: limit rating range, hours per day, and cost based on reasonable amounts
 
-        Dim success As Boolean = True
-
         Dim rating As Double = 0
         Dim hours As Double = 0
         Dim cost As Double = 0
 
-        ' TODO: fix later trues overwrite previous falses
-        '
-        success = Double.TryParse(txtRating.Text, rating)
-        success = Double.TryParse(txtHours.Text, hours)
-        success = Double.TryParse(txtCost.Text, cost)
-
-        If success Then
-            ' Calculate daily cost
+        If ValidateIsNumber(txtHours, hours) And ValidateIsNumber(txtRating, rating) And ValidateIsNumber(txtCost, cost) Then
             lblDaily.Text = FormatCurrency(rating * hours * (cost / 100))
-        Else
-            txtRating.Text = cmbAppliance.SelectedValue.ToString()
-            txtHours.Text = ""
-            txtCost.Text = ""
-            lblDaily.Text = ""
         End If
     End Sub
 
     Private Sub cmbAppliance_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAppliance.SelectedIndexChanged
         txtRating.Text = cmbAppliance.SelectedValue.ToString()
+    End Sub
+
+    Private Sub tmrError_Tick(sender As Object, e As EventArgs) Handles tmrError.Tick
+        ResetError()
+    End Sub
+
+    Private Sub txtHours_Enter(sender As Object, e As EventArgs) Handles txtHours.Enter
+        ResetError()
+    End Sub
+
+    Private Sub txtRating_Enter(sender As Object, e As EventArgs) Handles txtRating.Enter
+        ResetError()
+    End Sub
+
+    Private Sub txtCost_Enter(sender As Object, e As EventArgs) Handles txtCost.Enter
+        ResetError()
     End Sub
 End Class
