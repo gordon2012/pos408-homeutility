@@ -6,25 +6,29 @@
         If Double.TryParse(control.Text, value) Then
             Return True
         Else
-            LogError(control, "ERROR: " + control.Name + " value must be a number." + vbNewLine)
+            LogError(control, "ERROR: " + control.Name + " value must be a number.")
             Return False
         End If
     End Function
 
-    ' TODO
-    '
-    Private Sub ValidateRange()
+    Private Function ValidateRange(control As Control, base As Double, range As Double) As Boolean
+        Dim value As Double = Double.Parse(control.Text)
+        Dim min As Double = base - (base * range)
+        Dim max As Double = base + (base * range)
 
-        ' 1.5 -> 1.2-1.8 @ 20%
-        ' 0.09
+        If value >= min And value <= max Then
+            Return True
+        Else
+            LogError(control, "ERROR: " + control.Name + " value must be between " + min.ToString() + " and " + max.ToString() + ".")
+            Return False
+        End If
 
-
-    End Sub
+    End Function
 
     Private Sub LogError(control As Control, text As String)
         control.ForeColor = Color.Red
         control.BackColor = Color.Black
-        lblError.Text += text
+        lblError.Text += text + vbNewLine
         tmrError.Enabled = True
     End Sub
 
@@ -76,8 +80,13 @@
         Dim hours As Double = 0
         Dim cost As Double = 0
 
+        ' TODO: show range error even if other numeric errors exist
+
         If ValidateIsNumber(txtHours, hours) And ValidateIsNumber(txtRating, rating) And ValidateIsNumber(txtCost, cost) Then
-            lblDaily.Text = FormatCurrency(rating * hours * (cost / 100))
+            If ValidateRange(txtHours, 12, 1) And ValidateRange(txtRating, Double.Parse(cmbAppliance.SelectedValue.ToString()), 0.2) Then
+                lblDaily.Text = FormatCurrency(rating * hours * (cost / 100))
+            End If
+
         End If
     End Sub
 
