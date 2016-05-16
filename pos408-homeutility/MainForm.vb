@@ -44,12 +44,12 @@
 
         If success Then
             ' Calculate daily cost
-            txtDaily.Text = FormatCurrency(rating * hours * (cost / 100))
+            lblDaily.Text = FormatCurrency(rating * hours * (cost / 100))
         Else
             txtRating.Text = cmbAppliance.SelectedValue.ToString()
             txtHours.Text = ""
             txtCost.Text = ""
-            txtDaily.Text = ""
+            lblDaily.Text = ""
         End If
     End Sub
 

@@ -31,16 +31,27 @@ Partial Class MainForm
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtHours = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtDaily = New System.Windows.Forms.TextBox()
         Me.txtCost = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.lblDaily = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Panel1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        Me.Panel4.SuspendLayout()
+        Me.Panel5.SuspendLayout()
+        Me.Panel6.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(75, 9)
+        Me.Label1.Location = New System.Drawing.Point(82, 22)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(447, 37)
         Me.Label1.TabIndex = 0
@@ -50,23 +61,23 @@ Partial Class MainForm
         '
         Me.cmbAppliance.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbAppliance.FormattingEnabled = True
-        Me.cmbAppliance.Location = New System.Drawing.Point(12, 116)
+        Me.cmbAppliance.Location = New System.Drawing.Point(99, 7)
         Me.cmbAppliance.Name = "cmbAppliance"
-        Me.cmbAppliance.Size = New System.Drawing.Size(193, 28)
+        Me.cmbAppliance.Size = New System.Drawing.Size(198, 28)
         Me.cmbAppliance.TabIndex = 1
         '
         'txtRating
         '
         Me.txtRating.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRating.Location = New System.Drawing.Point(235, 116)
+        Me.txtRating.Location = New System.Drawing.Point(124, 7)
         Me.txtRating.Name = "txtRating"
-        Me.txtRating.Size = New System.Drawing.Size(193, 26)
+        Me.txtRating.Size = New System.Drawing.Size(126, 26)
         Me.txtRating.TabIndex = 2
         '
         'btnCalculate
         '
         Me.btnCalculate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCalculate.Location = New System.Drawing.Point(235, 259)
+        Me.btnCalculate.Location = New System.Drawing.Point(63, 178)
         Me.btnCalculate.Name = "btnCalculate"
         Me.btnCalculate.Size = New System.Drawing.Size(193, 29)
         Me.btnCalculate.TabIndex = 3
@@ -77,97 +88,157 @@ Partial Class MainForm
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(266, 74)
+        Me.Label2.Location = New System.Drawing.Point(10, 10)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(141, 20)
+        Me.Label2.Size = New System.Drawing.Size(108, 20)
         Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Power Rating (kW)"
+        Me.Label2.Text = "Power Rating:"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(52, 74)
+        Me.Label3.Location = New System.Drawing.Point(10, 10)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(79, 20)
+        Me.Label3.Size = New System.Drawing.Size(83, 20)
         Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Appliance"
+        Me.Label3.Text = "Appliance:"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(482, 74)
+        Me.Label4.Location = New System.Drawing.Point(10, 10)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(154, 20)
+        Me.Label4.Size = New System.Drawing.Size(158, 20)
         Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Hours Used Per Day"
+        Me.Label4.Text = "Hours Used Per Day:"
         '
         'txtHours
         '
         Me.txtHours.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtHours.Location = New System.Drawing.Point(467, 116)
+        Me.txtHours.Location = New System.Drawing.Point(174, 7)
         Me.txtHours.Name = "txtHours"
-        Me.txtHours.Size = New System.Drawing.Size(193, 26)
+        Me.txtHours.Size = New System.Drawing.Size(123, 26)
         Me.txtHours.TabIndex = 7
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(520, 214)
+        Me.Label5.Location = New System.Drawing.Point(10, 10)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(80, 20)
+        Me.Label5.Size = New System.Drawing.Size(84, 20)
         Me.Label5.TabIndex = 8
-        Me.Label5.Text = "Daily Cost"
-        '
-        'txtDaily
-        '
-        Me.txtDaily.Enabled = False
-        Me.txtDaily.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDaily.Location = New System.Drawing.Point(467, 262)
-        Me.txtDaily.Name = "txtDaily"
-        Me.txtDaily.ReadOnly = True
-        Me.txtDaily.Size = New System.Drawing.Size(193, 26)
-        Me.txtDaily.TabIndex = 9
+        Me.Label5.Text = "Daily Cost:"
         '
         'txtCost
         '
         Me.txtCost.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCost.Location = New System.Drawing.Point(12, 259)
+        Me.txtCost.Location = New System.Drawing.Point(77, 7)
         Me.txtCost.Name = "txtCost"
-        Me.txtCost.Size = New System.Drawing.Size(193, 26)
+        Me.txtCost.Size = New System.Drawing.Size(220, 26)
         Me.txtCost.TabIndex = 11
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(61, 214)
+        Me.Label6.Location = New System.Drawing.Point(10, 10)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(97, 20)
+        Me.Label6.Size = New System.Drawing.Size(61, 20)
         Me.Label6.TabIndex = 12
-        Me.Label6.Text = "Price (cents)"
+        Me.Label6.Text = "Price: ¢"
+        '
+        'lblDaily
+        '
+        Me.lblDaily.AutoSize = True
+        Me.lblDaily.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDaily.Location = New System.Drawing.Point(100, 10)
+        Me.lblDaily.Name = "lblDaily"
+        Me.lblDaily.Size = New System.Drawing.Size(0, 20)
+        Me.lblDaily.TabIndex = 13
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Label5)
+        Me.Panel1.Controls.Add(Me.lblDaily)
+        Me.Panel1.Location = New System.Drawing.Point(318, 172)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(300, 40)
+        Me.Panel1.TabIndex = 14
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.Label3)
+        Me.Panel3.Controls.Add(Me.cmbAppliance)
+        Me.Panel3.Location = New System.Drawing.Point(12, 126)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(300, 40)
+        Me.Panel3.TabIndex = 16
+        '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.txtHours)
+        Me.Panel4.Controls.Add(Me.Label4)
+        Me.Panel4.Location = New System.Drawing.Point(318, 80)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(300, 40)
+        Me.Panel4.TabIndex = 16
+        '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.Label6)
+        Me.Panel5.Controls.Add(Me.txtCost)
+        Me.Panel5.Location = New System.Drawing.Point(12, 80)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(300, 40)
+        Me.Panel5.TabIndex = 16
+        '
+        'Panel6
+        '
+        Me.Panel6.Controls.Add(Me.Label7)
+        Me.Panel6.Controls.Add(Me.Label2)
+        Me.Panel6.Controls.Add(Me.txtRating)
+        Me.Panel6.Location = New System.Drawing.Point(318, 126)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(300, 40)
+        Me.Panel6.TabIndex = 16
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(256, 10)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(41, 20)
+        Me.Label7.TabIndex = 5
+        Me.Label7.Text = "kWh"
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(701, 347)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.txtCost)
-        Me.Controls.Add(Me.txtDaily)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.txtHours)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
+        Me.ClientSize = New System.Drawing.Size(632, 334)
+        Me.Controls.Add(Me.Panel6)
+        Me.Controls.Add(Me.Panel5)
+        Me.Controls.Add(Me.Panel4)
+        Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnCalculate)
-        Me.Controls.Add(Me.txtRating)
-        Me.Controls.Add(Me.cmbAppliance)
         Me.Controls.Add(Me.Label1)
         Me.Name = "MainForm"
         Me.Text = "Home Utility Auditing Program"
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -181,8 +252,14 @@ Partial Class MainForm
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents txtHours As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents txtDaily As System.Windows.Forms.TextBox
     Friend WithEvents txtCost As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents lblDaily As System.Windows.Forms.Label
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents Panel4 As System.Windows.Forms.Panel
+    Friend WithEvents Panel5 As System.Windows.Forms.Panel
+    Friend WithEvents Panel6 As System.Windows.Forms.Panel
+    Friend WithEvents Label7 As System.Windows.Forms.Label
 
 End Class
