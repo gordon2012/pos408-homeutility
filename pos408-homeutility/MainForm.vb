@@ -1,8 +1,8 @@
 ﻿Public Class MainForm
-    ' Home Utility Auditing Program
+    ' Enhanced Home Utility Auditing Program
     '        Gordon Doskas
     '           POS/408
-    '          May 16, 2016
+    '          May 23, 2016
     '        Dr. Bill Spees
 
     ' This program calculates the daily cost of an appliance given its power
@@ -11,8 +11,11 @@
     ' if valid Double values are not entered, the hours exceeds 24 or is below
     ' 0, or the power rating is more than +/- 20% of the default.
 
+    ' TODO: week 3 description
 
-    Private Const RatingValidRange = 0.2
+
+    Private Const MinRating = 0
+    Private Const MaxRating = 1.5
 
 
     ' Logs an error message if the control's text is not a valid Double
@@ -28,25 +31,17 @@
 
     ' Logs an error message if the control's text is not in a certain percent range of the passed base value
     '
-    Private Function ValidateRange(control As Control, ByRef value As Double, base As Double, range As Double) As Boolean
-        'Dim value As Double
-
-        'Double.Parse(control.Text)
-
+    Private Function ValidateRange(control As Control, ByRef value As Double, min As Double, max As Double) As Boolean
         If Not ValidateIsNumber(control, value) Then
             Return False
         End If
 
-        Dim min As Double = base - (base * range)
-        Dim max As Double = base + (base * range)
-
         If value >= min And value <= max Then
             Return True
         Else
-            LogError(control, "ERROR: " + control.Name + " value must be between " + min.ToString() + " and " + max.ToString() + ".")
+            LogError(control, "ERROR: " + control.Name + " value must be between " + min.ToString() + " and " + max.ToString())
             Return False
         End If
-
     End Function
 
     ' Displays a log message to the log label and changes the color of it and that of the source of the error's control
@@ -83,20 +78,9 @@
 
         ' Initialize appliance names and base values from Appliancefigures.xls
         '
-        Dim applianceList As New Dictionary(Of String, Double)()
-
-        applianceList.Add("Refrigerator", 0.11)
-        applianceList.Add("Hair dryer", 1.5)
-        applianceList.Add("Television", 0.31)
-        applianceList.Add("Desktop computer", 0.09)
-        applianceList.Add("Fan", 0.2)
-        applianceList.Add("Microwave(1000W)", 1.0)
+        Dim applianceList() As String = {"Refrigerator", "Hair dryer", "Television", "Desktop computer", "Fan", "Microwave"}
 
         cmbAppliance.DataSource = New BindingSource(applianceList, Nothing)
-        cmbAppliance.DisplayMember = "Key"
-        cmbAppliance.ValueMember = "Value"
-
-        txtRating.Text = cmbAppliance.SelectedValue.ToString()
     End Sub
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
@@ -106,17 +90,11 @@
 
         ' Validates all input and calculates daily cost
         '
-        If ValidateRange(txtHours, hours, 12, 1) And _
-            ValidateRange(txtRating, rating, Double.Parse(cmbAppliance.SelectedValue.ToString()), RatingValidRange) And _
+        If ValidateRange(txtHours, hours, 0, 24) And _
+            ValidateRange(txtRating, rating, MinRating, MaxRating) And _
             ValidateIsNumber(txtCost, cost) Then
             lblDaily.Text = FormatCurrency(rating * hours * (cost / 100))
         End If
-    End Sub
-
-    ' Updates the text of the rating texbox as different appliances are chosen from the combo box
-    '
-    Private Sub cmbAppliance_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAppliance.SelectedIndexChanged
-        txtRating.Text = cmbAppliance.SelectedValue.ToString()
     End Sub
 
     ' Reset the error log if an input control is selected or 3 seconds elapses
