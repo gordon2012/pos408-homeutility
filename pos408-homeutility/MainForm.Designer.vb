@@ -68,7 +68,7 @@ Partial Class MainForm
         Me.cmbAppliance.Location = New System.Drawing.Point(99, 7)
         Me.cmbAppliance.Name = "cmbAppliance"
         Me.cmbAppliance.Size = New System.Drawing.Size(198, 28)
-        Me.cmbAppliance.TabIndex = 1
+        Me.cmbAppliance.TabIndex = 2
         '
         'btnCalculate
         '
@@ -76,7 +76,7 @@ Partial Class MainForm
         Me.btnCalculate.Location = New System.Drawing.Point(63, 178)
         Me.btnCalculate.Name = "btnCalculate"
         Me.btnCalculate.Size = New System.Drawing.Size(193, 29)
-        Me.btnCalculate.TabIndex = 3
+        Me.btnCalculate.TabIndex = 4
         Me.btnCalculate.Text = "Calculate"
         Me.btnCalculate.UseVisualStyleBackColor = True
         '
@@ -87,7 +87,7 @@ Partial Class MainForm
         Me.Label3.Location = New System.Drawing.Point(10, 10)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(83, 20)
-        Me.Label3.TabIndex = 5
+        Me.Label3.TabIndex = 1
         Me.Label3.Text = "Appliance:"
         '
         'Label4
@@ -106,7 +106,7 @@ Partial Class MainForm
         Me.txtHours.Location = New System.Drawing.Point(174, 7)
         Me.txtHours.Name = "txtHours"
         Me.txtHours.Size = New System.Drawing.Size(123, 26)
-        Me.txtHours.TabIndex = 7
+        Me.txtHours.TabIndex = 1
         '
         'Label5
         '
@@ -124,7 +124,7 @@ Partial Class MainForm
         Me.txtCost.Location = New System.Drawing.Point(77, 7)
         Me.txtCost.Name = "txtCost"
         Me.txtCost.Size = New System.Drawing.Size(220, 26)
-        Me.txtCost.TabIndex = 11
+        Me.txtCost.TabIndex = 0
         '
         'Label6
         '
@@ -143,7 +143,7 @@ Partial Class MainForm
         Me.lblDaily.Location = New System.Drawing.Point(100, 10)
         Me.lblDaily.Name = "lblDaily"
         Me.lblDaily.Size = New System.Drawing.Size(0, 20)
-        Me.lblDaily.TabIndex = 13
+        Me.lblDaily.TabIndex = 0
         '
         'Panel1
         '
@@ -187,7 +187,7 @@ Partial Class MainForm
         Me.txtRating.Location = New System.Drawing.Point(124, 7)
         Me.txtRating.Name = "txtRating"
         Me.txtRating.Size = New System.Drawing.Size(126, 26)
-        Me.txtRating.TabIndex = 2
+        Me.txtRating.TabIndex = 3
         '
         'Label2
         '
@@ -223,11 +223,11 @@ Partial Class MainForm
         '
         Me.lblError.AutoSize = True
         Me.lblError.BackColor = System.Drawing.Color.Black
-        Me.lblError.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblError.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblError.ForeColor = System.Drawing.Color.Red
         Me.lblError.Location = New System.Drawing.Point(22, 237)
         Me.lblError.Name = "lblError"
-        Me.lblError.Size = New System.Drawing.Size(0, 20)
+        Me.lblError.Size = New System.Drawing.Size(0, 16)
         Me.lblError.TabIndex = 17
         '
         'tmrError
@@ -260,7 +260,6 @@ Partial Class MainForm
         Me.Controls.Add(Me.btnCalculate)
         Me.Controls.Add(Me.Label1)
         Me.Name = "MainForm"
-        Me.Text = "Home Utility Auditing Program"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
