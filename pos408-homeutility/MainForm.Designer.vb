@@ -134,7 +134,7 @@ Partial Class MainForm
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(61, 20)
         Me.Label6.TabIndex = 12
-        Me.Label6.Text = "Price: ¢"
+        Me.Label6.Text = "Price: $"
         '
         'lblDaily
         '

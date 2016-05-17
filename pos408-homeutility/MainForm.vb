@@ -93,7 +93,7 @@
         If ValidateRange(txtHours, hours, 0, 24) And _
             ValidateRange(txtRating, rating, MinRating, MaxRating) And _
             ValidateIsNumber(txtCost, cost) Then
-            lblDaily.Text = FormatCurrency(rating * hours * (cost / 100))
+            lblDaily.Text = FormatCurrency(rating * hours * cost)
         End If
     End Sub
 
