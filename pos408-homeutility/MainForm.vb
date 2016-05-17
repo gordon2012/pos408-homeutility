@@ -17,6 +17,10 @@
     Private Const MinRating = 0
     Private Const MaxRating = 1.5
 
+    Dim rating As Double
+    Dim hours As Double
+    Dim cost As Double
+
 
     ' Logs an error message if the control's text is not a valid Double
     '
@@ -53,7 +57,7 @@
         tmrError.Enabled = True
     End Sub
 
-    ' Clears the error log and resets colors
+    ' Clears the error log, resets colors, and clears the previous calculated daily cost
     '
     Private Sub ResetError()
         txtHours.ForeColor = Color.Black
@@ -66,52 +70,70 @@
         txtRating.BackColor = Color.White
 
         lblError.Text = ""
-        tmrError.Enabled = False
+        lblDaily.Text = ""
+    End Sub
+
+    ' Resets the output, does the validation, and enables the calculate button
+    ' if successful. The validation will silently fail on empty input, meaning
+    ' that it will not enable the calculate button but not display an error
+    '
+    Private Sub PerformValidation()
+        Dim valid As Boolean = True
+
+        ResetError()
+
+        If Not txtCost.Text = String.Empty Then
+            valid = valid And ValidateIsNumber(txtCost, cost)
+        Else
+            valid = False
+        End If
+
+        If Not txtHours.Text = String.Empty Then
+            valid = valid And ValidateRange(txtHours, hours, 0, 24)
+        Else
+            valid = False
+        End If
+
+        If Not txtRating.Text = String.Empty Then
+            valid = valid And ValidateRange(txtRating, rating, MinRating, MaxRating)
+        Else
+            valid = False
+        End If
+
+        btnCalculate.Enabled = valid
     End Sub
 
 
     ' /******************
     '  * EVENT HANDLERS *
     '  ******************/
-
+    '
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        ' Initialize appliance names and base values from Appliancefigures.xls
+        ' Initialize appliance names
         '
         Dim applianceList() As String = {"Refrigerator", "Hair dryer", "Television", "Desktop computer", "Fan", "Microwave"}
-
         cmbAppliance.DataSource = New BindingSource(applianceList, Nothing)
+
+        ' Initial validation
+        '
+        PerformValidation()
     End Sub
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
-        Dim rating As Double = 0
-        Dim hours As Double = 0
-        Dim cost As Double = 0
-
-        ' Validates all input and calculates daily cost
+        ' Input has already been validated
         '
-        If ValidateRange(txtHours, hours, 0, 24) And _
-            ValidateRange(txtRating, rating, MinRating, MaxRating) And _
-            ValidateIsNumber(txtCost, cost) Then
-            lblDaily.Text = FormatCurrency(rating * hours * cost)
-        End If
+        lblDaily.Text = FormatCurrency(rating * hours * cost)
     End Sub
 
-    ' Reset the error log if an input control is selected or 3 seconds elapses
+    ' Validate all input when any textbox changes
     '
-    Private Sub tmrError_Tick(sender As Object, e As EventArgs) Handles tmrError.Tick
-        ResetError()
+    Private Sub txtCost_TextChanged(sender As Object, e As EventArgs) Handles txtCost.TextChanged
+        PerformValidation()
     End Sub
-
-    Private Sub txtHours_Enter(sender As Object, e As EventArgs) Handles txtHours.Enter
-        ResetError()
+    Private Sub txtHours_TextChanged(sender As Object, e As EventArgs) Handles txtHours.TextChanged
+        PerformValidation()
     End Sub
-
-    Private Sub txtRating_Enter(sender As Object, e As EventArgs) Handles txtRating.Enter
-        ResetError()
-    End Sub
-
-    Private Sub txtCost_Enter(sender As Object, e As EventArgs) Handles txtCost.Enter
-        ResetError()
+    Private Sub txtRating_TextChanged(sender As Object, e As EventArgs) Handles txtRating.TextChanged
+        PerformValidation()
     End Sub
 End Class
