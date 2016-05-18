@@ -22,18 +22,18 @@
     Dim cost As Double
 
 
-    ' Logs an error message if the control's text is not a valid Double
+    ' Displays validation error panel if the control's text is not a valid Double
     '
     Private Function ValidateIsNumber(control As Control, ByRef value As Double) As Boolean
         If Double.TryParse(control.Text, value) Then
             Return True
         Else
-            LogError(control, "ERROR: " + control.Name + " value must be a number.")
+            DisplayError(control.Name.Substring(3), "Must be a number")
             Return False
         End If
     End Function
 
-    ' Logs an error message if the control's text is not in a certain percent range of the passed base value
+    ' Displays validation error panel if the control's text is not in a certain range
     '
     Private Function ValidateRange(control As Control, ByRef value As Double, min As Double, max As Double) As Boolean
         If Not ValidateIsNumber(control, value) Then
@@ -43,31 +43,24 @@
         If value >= min And value <= max Then
             Return True
         Else
-            LogError(control, "ERROR: " + control.Name + " value must be between " + min.ToString() + " and " + max.ToString())
+            DisplayError(control.Name.Substring(3), "Must be a value between " + min.ToString() + " and " + max.ToString())
             Return False
         End If
     End Function
 
-    ' Displays a log message to the log label and changes the color of it and that of the source of the error's control
+    ' Shows the input text's validation error panel and sets its label text
     '
-    Private Sub LogError(control As Control, text As String)
-        control.ForeColor = Color.Red
-        control.BackColor = Color.Black
-        lblError.Text += text + vbNewLine
-        tmrError.Enabled = True
+    Private Sub DisplayError(control As String, text As String)
+        Me.Controls.Find("pnl" + control, True)(0).Visible = True
+        Me.Controls.Find("lbl" + control, True)(0).Text = text
     End Sub
 
-    ' Clears the error log, resets colors, and clears the previous calculated daily cost
+    ' Hides the validation error panels and clears the previous calculated daily cost
     '
     Private Sub ResetError()
-        txtHours.ForeColor = Color.Black
-        txtHours.BackColor = Color.White
-
-        txtCost.ForeColor = Color.Black
-        txtCost.BackColor = Color.White
-
-        txtRating.ForeColor = Color.Black
-        txtRating.BackColor = Color.White
+        pnlCost.Visible = False
+        pnlRating.Visible = False
+        pnlHours.Visible = False
 
         lblError.Text = ""
         lblDaily.Text = ""
@@ -126,6 +119,7 @@
     End Sub
 
     ' Validate all input when any textbox changes
+    ' TODO: introduce delay to prevent flashing
     '
     Private Sub txtCost_TextChanged(sender As Object, e As EventArgs) Handles txtCost.TextChanged
         PerformValidation()
