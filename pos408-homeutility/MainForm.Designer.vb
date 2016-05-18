@@ -29,12 +29,10 @@ Partial Class MainForm
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lblDaily = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.lblError = New System.Windows.Forms.Label()
+        Me.lblDebug = New System.Windows.Forms.Label()
         Me.tmrError = New System.Windows.Forms.Timer(Me.components)
         Me.lblHours = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.txtHours = New System.Windows.Forms.TextBox()
@@ -52,9 +50,22 @@ Partial Class MainForm
         Me.pnlRating = New System.Windows.Forms.Panel()
         Me.lblRating = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.Panel1.SuspendLayout()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.txtWaterprice = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.lblWaterprice = New System.Windows.Forms.Label()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.txtGallons = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.lblGallons = New System.Windows.Forms.Label()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.pnlWater = New System.Windows.Forms.Panel()
+        Me.pnlButton = New System.Windows.Forms.Panel()
+        Me.pnlList = New System.Windows.Forms.Panel()
         Me.Panel3.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel7.SuspendLayout()
         Me.pnlHours.SuspendLayout()
@@ -64,6 +75,15 @@ Partial Class MainForm
         Me.Panel5.SuspendLayout()
         Me.pnlRating.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel4.SuspendLayout()
+        Me.Panel6.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel9.SuspendLayout()
+        Me.Panel10.SuspendLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlWater.SuspendLayout()
+        Me.pnlButton.SuspendLayout()
+        Me.pnlList.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -109,7 +129,7 @@ Partial Class MainForm
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(3, 3)
+        Me.Label5.Location = New System.Drawing.Point(221, 9)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(72, 16)
         Me.Label5.TabIndex = 8
@@ -119,20 +139,11 @@ Partial Class MainForm
         '
         Me.lblDaily.AutoSize = True
         Me.lblDaily.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDaily.Location = New System.Drawing.Point(81, 3)
+        Me.lblDaily.Location = New System.Drawing.Point(299, 9)
         Me.lblDaily.Name = "lblDaily"
         Me.lblDaily.Size = New System.Drawing.Size(36, 16)
         Me.lblDaily.TabIndex = 0
         Me.lblDaily.Text = "$$$$"
-        '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.lblDaily)
-        Me.Panel1.Location = New System.Drawing.Point(12, 221)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(699, 40)
-        Me.Panel1.TabIndex = 14
         '
         'Panel3
         '
@@ -143,17 +154,17 @@ Partial Class MainForm
         Me.Panel3.Size = New System.Drawing.Size(700, 30)
         Me.Panel3.TabIndex = 16
         '
-        'lblError
+        'lblDebug
         '
-        Me.lblError.AutoSize = True
-        Me.lblError.BackColor = System.Drawing.Color.Black
-        Me.lblError.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblError.ForeColor = System.Drawing.Color.Red
-        Me.lblError.Location = New System.Drawing.Point(217, 189)
-        Me.lblError.Name = "lblError"
-        Me.lblError.Size = New System.Drawing.Size(20, 16)
-        Me.lblError.TabIndex = 17
-        Me.lblError.Text = "!!!!"
+        Me.lblDebug.AutoSize = True
+        Me.lblDebug.BackColor = System.Drawing.Color.Transparent
+        Me.lblDebug.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDebug.ForeColor = System.Drawing.Color.Black
+        Me.lblDebug.Location = New System.Drawing.Point(3, 3)
+        Me.lblDebug.Name = "lblDebug"
+        Me.lblDebug.Size = New System.Drawing.Size(36, 16)
+        Me.lblDebug.TabIndex = 17
+        Me.lblDebug.Text = "????"
         '
         'tmrError
         '
@@ -170,14 +181,6 @@ Partial Class MainForm
         Me.lblHours.Size = New System.Drawing.Size(20, 16)
         Me.lblHours.TabIndex = 18
         Me.lblHours.Text = "!!!!"
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.btnCalculate)
-        Me.Panel2.Location = New System.Drawing.Point(12, 180)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(199, 35)
-        Me.Panel2.TabIndex = 19
         '
         'PictureBox1
         '
@@ -249,9 +252,9 @@ Partial Class MainForm
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(3, 7)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(57, 16)
+        Me.Label8.Size = New System.Drawing.Size(110, 16)
         Me.Label8.TabIndex = 6
-        Me.Label8.Text = "Price ($)"
+        Me.Label8.Text = "Price per kWh ($)"
         '
         'pnlCost
         '
@@ -341,25 +344,167 @@ Partial Class MainForm
         Me.PictureBox3.TabIndex = 20
         Me.PictureBox3.TabStop = False
         '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.txtWaterprice)
+        Me.Panel4.Controls.Add(Me.Label2)
+        Me.Panel4.Controls.Add(Me.Panel6)
+        Me.Panel4.Location = New System.Drawing.Point(0, 0)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(700, 30)
+        Me.Panel4.TabIndex = 20
+        '
+        'txtWaterprice
+        '
+        Me.txtWaterprice.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtWaterprice.Location = New System.Drawing.Point(142, 4)
+        Me.txtWaterprice.Name = "txtWaterprice"
+        Me.txtWaterprice.Size = New System.Drawing.Size(290, 22)
+        Me.txtWaterprice.TabIndex = 1
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(3, 7)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(120, 16)
+        Me.Label2.TabIndex = 6
+        Me.Label2.Text = "Price per gallon ($)"
+        '
+        'Panel6
+        '
+        Me.Panel6.Controls.Add(Me.lblWaterprice)
+        Me.Panel6.Controls.Add(Me.PictureBox4)
+        Me.Panel6.Location = New System.Drawing.Point(138, 0)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(561, 30)
+        Me.Panel6.TabIndex = 15
+        '
+        'lblWaterprice
+        '
+        Me.lblWaterprice.AutoSize = True
+        Me.lblWaterprice.BackColor = System.Drawing.Color.LightCoral
+        Me.lblWaterprice.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWaterprice.ForeColor = System.Drawing.Color.Black
+        Me.lblWaterprice.Location = New System.Drawing.Point(300, 7)
+        Me.lblWaterprice.Name = "lblWaterprice"
+        Me.lblWaterprice.Size = New System.Drawing.Size(20, 16)
+        Me.lblWaterprice.TabIndex = 18
+        Me.lblWaterprice.Text = "!!!!"
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackColor = System.Drawing.Color.LightCoral
+        Me.PictureBox4.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(561, 30)
+        Me.PictureBox4.TabIndex = 20
+        Me.PictureBox4.TabStop = False
+        '
+        'Panel9
+        '
+        Me.Panel9.Controls.Add(Me.txtGallons)
+        Me.Panel9.Controls.Add(Me.Label9)
+        Me.Panel9.Controls.Add(Me.Panel10)
+        Me.Panel9.Location = New System.Drawing.Point(0, 30)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Size = New System.Drawing.Size(700, 30)
+        Me.Panel9.TabIndex = 19
+        '
+        'txtGallons
+        '
+        Me.txtGallons.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtGallons.Location = New System.Drawing.Point(142, 4)
+        Me.txtGallons.Name = "txtGallons"
+        Me.txtGallons.Size = New System.Drawing.Size(290, 22)
+        Me.txtGallons.TabIndex = 1
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(3, 7)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(126, 16)
+        Me.Label9.TabIndex = 6
+        Me.Label9.Text = "Water per hour (gal)"
+        '
+        'Panel10
+        '
+        Me.Panel10.Controls.Add(Me.lblGallons)
+        Me.Panel10.Controls.Add(Me.PictureBox5)
+        Me.Panel10.Location = New System.Drawing.Point(138, 0)
+        Me.Panel10.Name = "Panel10"
+        Me.Panel10.Size = New System.Drawing.Size(561, 30)
+        Me.Panel10.TabIndex = 15
+        '
+        'lblGallons
+        '
+        Me.lblGallons.AutoSize = True
+        Me.lblGallons.BackColor = System.Drawing.Color.LightCoral
+        Me.lblGallons.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGallons.ForeColor = System.Drawing.Color.Black
+        Me.lblGallons.Location = New System.Drawing.Point(300, 7)
+        Me.lblGallons.Name = "lblGallons"
+        Me.lblGallons.Size = New System.Drawing.Size(20, 16)
+        Me.lblGallons.TabIndex = 18
+        Me.lblGallons.Text = "!!!!"
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.BackColor = System.Drawing.Color.LightCoral
+        Me.PictureBox5.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(561, 30)
+        Me.PictureBox5.TabIndex = 20
+        Me.PictureBox5.TabStop = False
+        '
+        'pnlWater
+        '
+        Me.pnlWater.Controls.Add(Me.Panel4)
+        Me.pnlWater.Controls.Add(Me.Panel9)
+        Me.pnlWater.Location = New System.Drawing.Point(12, 174)
+        Me.pnlWater.Name = "pnlWater"
+        Me.pnlWater.Size = New System.Drawing.Size(700, 60)
+        Me.pnlWater.TabIndex = 22
+        '
+        'pnlButton
+        '
+        Me.pnlButton.BackColor = System.Drawing.SystemColors.Control
+        Me.pnlButton.Controls.Add(Me.lblDaily)
+        Me.pnlButton.Controls.Add(Me.Label5)
+        Me.pnlButton.Controls.Add(Me.btnCalculate)
+        Me.pnlButton.Location = New System.Drawing.Point(12, 234)
+        Me.pnlButton.Name = "pnlButton"
+        Me.pnlButton.Size = New System.Drawing.Size(700, 35)
+        Me.pnlButton.TabIndex = 23
+        '
+        'pnlList
+        '
+        Me.pnlList.BackColor = System.Drawing.SystemColors.Control
+        Me.pnlList.Controls.Add(Me.lblDebug)
+        Me.pnlList.Location = New System.Drawing.Point(12, 269)
+        Me.pnlList.Name = "pnlList"
+        Me.pnlList.Size = New System.Drawing.Size(700, 285)
+        Me.pnlList.TabIndex = 23
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(725, 274)
+        Me.ClientSize = New System.Drawing.Size(725, 566)
+        Me.Controls.Add(Me.pnlList)
+        Me.Controls.Add(Me.pnlButton)
+        Me.Controls.Add(Me.pnlWater)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel8)
-        Me.Controls.Add(Me.lblError)
         Me.Controls.Add(Me.Panel7)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label1)
         Me.Name = "MainForm"
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
@@ -375,6 +520,21 @@ Partial Class MainForm
         Me.pnlRating.ResumeLayout(False)
         Me.pnlRating.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel9.ResumeLayout(False)
+        Me.Panel9.PerformLayout()
+        Me.Panel10.ResumeLayout(False)
+        Me.Panel10.PerformLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlWater.ResumeLayout(False)
+        Me.pnlButton.ResumeLayout(False)
+        Me.pnlButton.PerformLayout()
+        Me.pnlList.ResumeLayout(False)
+        Me.pnlList.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -385,12 +545,10 @@ Partial Class MainForm
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents lblDaily As System.Windows.Forms.Label
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents lblError As System.Windows.Forms.Label
+    Friend WithEvents lblDebug As System.Windows.Forms.Label
     Friend WithEvents tmrError As System.Windows.Forms.Timer
     Friend WithEvents lblHours As System.Windows.Forms.Label
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Panel7 As System.Windows.Forms.Panel
     Friend WithEvents txtHours As System.Windows.Forms.TextBox
@@ -408,5 +566,20 @@ Partial Class MainForm
     Friend WithEvents pnlRating As System.Windows.Forms.Panel
     Friend WithEvents lblRating As System.Windows.Forms.Label
     Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
+    Friend WithEvents Panel4 As System.Windows.Forms.Panel
+    Friend WithEvents txtWaterprice As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Panel6 As System.Windows.Forms.Panel
+    Friend WithEvents lblWaterprice As System.Windows.Forms.Label
+    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents Panel9 As System.Windows.Forms.Panel
+    Friend WithEvents txtGallons As System.Windows.Forms.TextBox
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Panel10 As System.Windows.Forms.Panel
+    Friend WithEvents lblGallons As System.Windows.Forms.Label
+    Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
+    Friend WithEvents pnlWater As System.Windows.Forms.Panel
+    Friend WithEvents pnlButton As System.Windows.Forms.Panel
+    Friend WithEvents pnlList As System.Windows.Forms.Panel
 
 End Class

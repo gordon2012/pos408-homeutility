@@ -62,7 +62,6 @@
         pnlRating.Visible = False
         pnlHours.Visible = False
 
-        lblError.Text = ""
         lblDaily.Text = ""
     End Sub
 
@@ -71,6 +70,8 @@
     ' that it will not enable the calculate button but not display an error
     '
     Private Sub PerformValidation()
+        ' TODO add validation for washer
+
         Dim valid As Boolean = True
 
         ResetError()
@@ -96,6 +97,26 @@
         btnCalculate.Enabled = valid
     End Sub
 
+    Private Sub DebugLog(text As String)
+        lblDebug.Text += text + vbNewLine
+    End Sub
+
+    Private Sub CheckFields()
+        ' TODO: fix hardcodedness?
+        '
+        If cmbAppliance.SelectedIndex = 6 Then
+            pnlWater.Visible = True
+            pnlButton.Top = 234
+            pnlList.Top = 269
+            pnlList.Height = 285
+        Else
+            pnlWater.Visible = False
+            pnlButton.Top = 174
+            pnlList.Top = 209
+            pnlList.Height = 345
+        End If
+    End Sub
+
 
     ' /******************
     '  * EVENT HANDLERS *
@@ -104,18 +125,25 @@
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Initialize appliance names
         '
-        Dim applianceList() As String = {"Refrigerator", "Hair dryer", "Television", "Desktop computer", "Fan", "Microwave"}
+        Dim applianceList() As String = {"Refrigerator", "Hair dryer", "Fan", "Microwave", "Computer", "Television", "Washer"}
         cmbAppliance.DataSource = New BindingSource(applianceList, Nothing)
 
         ' Initial validation
         '
         PerformValidation()
+
+        lblDebug.Text = ""
+        DebugLog("This is a test of debug log")
+        DebugLog("The quick brown fox jumped over the lazy dog")
+        CheckFields()
     End Sub
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
         ' Input has already been validated
         '
         lblDaily.Text = FormatCurrency(rating * hours * cost)
+
+        DebugLog(cmbAppliance.SelectedIndex.ToString())
     End Sub
 
     ' Validate all input when any textbox changes
@@ -129,5 +157,9 @@
     End Sub
     Private Sub txtRating_TextChanged(sender As Object, e As EventArgs) Handles txtRating.TextChanged
         PerformValidation()
+    End Sub
+
+    Private Sub cmbAppliance_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAppliance.SelectedIndexChanged
+        CheckFields()
     End Sub
 End Class
