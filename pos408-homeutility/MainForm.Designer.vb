@@ -103,7 +103,7 @@ Partial Class MainForm
         Me.cmbAppliance.Location = New System.Drawing.Point(142, 0)
         Me.cmbAppliance.Name = "cmbAppliance"
         Me.cmbAppliance.Size = New System.Drawing.Size(290, 24)
-        Me.cmbAppliance.TabIndex = 2
+        Me.cmbAppliance.TabIndex = 1
         '
         'btnCalculate
         '
@@ -122,7 +122,7 @@ Partial Class MainForm
         Me.Label3.Location = New System.Drawing.Point(3, 3)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(72, 16)
-        Me.Label3.TabIndex = 1
+        Me.Label3.TabIndex = 0
         Me.Label3.Text = "Appliance:"
         '
         'Label5
@@ -152,7 +152,7 @@ Partial Class MainForm
         Me.Panel3.Location = New System.Drawing.Point(12, 90)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(700, 30)
-        Me.Panel3.TabIndex = 16
+        Me.Panel3.TabIndex = 1
         '
         'lblDebug
         '
@@ -199,7 +199,7 @@ Partial Class MainForm
         Me.Panel7.Location = New System.Drawing.Point(12, 144)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(700, 30)
-        Me.Panel7.TabIndex = 17
+        Me.Panel7.TabIndex = 3
         '
         'txtHours
         '
@@ -216,7 +216,7 @@ Partial Class MainForm
         Me.Label7.Location = New System.Drawing.Point(3, 7)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(111, 16)
-        Me.Label7.TabIndex = 6
+        Me.Label7.TabIndex = 0
         Me.Label7.Text = "Daily Use (hours)"
         '
         'pnlHours
@@ -236,7 +236,7 @@ Partial Class MainForm
         Me.Panel8.Location = New System.Drawing.Point(12, 60)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(700, 30)
-        Me.Panel8.TabIndex = 18
+        Me.Panel8.TabIndex = 0
         '
         'txtCost
         '
@@ -244,7 +244,7 @@ Partial Class MainForm
         Me.txtCost.Location = New System.Drawing.Point(142, 4)
         Me.txtCost.Name = "txtCost"
         Me.txtCost.Size = New System.Drawing.Size(290, 22)
-        Me.txtCost.TabIndex = 1
+        Me.txtCost.TabIndex = 0
         '
         'Label8
         '
@@ -253,7 +253,7 @@ Partial Class MainForm
         Me.Label8.Location = New System.Drawing.Point(3, 7)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(110, 16)
-        Me.Label8.TabIndex = 6
+        Me.Label8.TabIndex = 0
         Me.Label8.Text = "Price per kWh ($)"
         '
         'pnlCost
@@ -274,7 +274,7 @@ Partial Class MainForm
         Me.lblCost.Location = New System.Drawing.Point(300, 7)
         Me.lblCost.Name = "lblCost"
         Me.lblCost.Size = New System.Drawing.Size(20, 16)
-        Me.lblCost.TabIndex = 18
+        Me.lblCost.TabIndex = 0
         Me.lblCost.Text = "!!!!"
         '
         'PictureBox2
@@ -294,7 +294,7 @@ Partial Class MainForm
         Me.Panel5.Location = New System.Drawing.Point(12, 114)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(700, 30)
-        Me.Panel5.TabIndex = 18
+        Me.Panel5.TabIndex = 2
         '
         'txtRating
         '
@@ -311,7 +311,7 @@ Partial Class MainForm
         Me.Label6.Location = New System.Drawing.Point(3, 7)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(126, 16)
-        Me.Label6.TabIndex = 6
+        Me.Label6.TabIndex = 0
         Me.Label6.Text = "Power Rating (kWh)"
         '
         'pnlRating
@@ -332,7 +332,7 @@ Partial Class MainForm
         Me.lblRating.Location = New System.Drawing.Point(300, 7)
         Me.lblRating.Name = "lblRating"
         Me.lblRating.Size = New System.Drawing.Size(20, 16)
-        Me.lblRating.TabIndex = 18
+        Me.lblRating.TabIndex = 0
         Me.lblRating.Text = "!!!!"
         '
         'PictureBox3
@@ -352,7 +352,7 @@ Partial Class MainForm
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(700, 30)
-        Me.Panel4.TabIndex = 20
+        Me.Panel4.TabIndex = 1
         '
         'txtWaterprice
         '
@@ -369,7 +369,7 @@ Partial Class MainForm
         Me.Label2.Location = New System.Drawing.Point(3, 7)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(120, 16)
-        Me.Label2.TabIndex = 6
+        Me.Label2.TabIndex = 0
         Me.Label2.Text = "Price per gallon ($)"
         '
         'Panel6
@@ -410,7 +410,7 @@ Partial Class MainForm
         Me.Panel9.Location = New System.Drawing.Point(0, 30)
         Me.Panel9.Name = "Panel9"
         Me.Panel9.Size = New System.Drawing.Size(700, 30)
-        Me.Panel9.TabIndex = 19
+        Me.Panel9.TabIndex = 1
         '
         'txtGallons
         '
@@ -418,7 +418,7 @@ Partial Class MainForm
         Me.txtGallons.Location = New System.Drawing.Point(142, 4)
         Me.txtGallons.Name = "txtGallons"
         Me.txtGallons.Size = New System.Drawing.Size(290, 22)
-        Me.txtGallons.TabIndex = 1
+        Me.txtGallons.TabIndex = 2
         '
         'Label9
         '
@@ -427,7 +427,7 @@ Partial Class MainForm
         Me.Label9.Location = New System.Drawing.Point(3, 7)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(126, 16)
-        Me.Label9.TabIndex = 6
+        Me.Label9.TabIndex = 2
         Me.Label9.Text = "Water per hour (gal)"
         '
         'Panel10
