@@ -21,6 +21,9 @@
     Dim hours As Double
     Dim cost As Double
 
+    Dim waterprice As Double
+    Dim gallons As Double
+
 
     ' Displays validation error panel if the control's text is not a valid Double
     '
@@ -61,6 +64,8 @@
         pnlCost.Visible = False
         pnlRating.Visible = False
         pnlHours.Visible = False
+        pnlWaterprice.Visible = False
+        pnlGallons.Visible = False
 
         lblDaily.Text = ""
     End Sub
@@ -71,6 +76,8 @@
     '
     Private Sub PerformValidation()
         ' TODO add validation for washer
+
+        DebugLog("Test Validation")
 
         Dim valid As Boolean = True
 
@@ -92,6 +99,22 @@
             valid = valid And ValidateRange(txtRating, rating, MinRating, MaxRating)
         Else
             valid = False
+        End If
+
+        ' Washer validation
+        If cmbAppliance.SelectedIndex = 6 Then
+            DebugLog("VALIDATION -> water")
+            If Not txtWaterprice.Text = String.Empty Then
+                valid = valid And ValidateIsNumber(txtWaterprice, waterprice)
+            Else
+                valid = False
+            End If
+
+            If Not txtGallons.Text = String.Empty Then
+                valid = valid And ValidateIsNumber(txtGallons, gallons)
+            Else
+                valid = False
+            End If
         End If
 
         btnCalculate.Enabled = valid
@@ -158,8 +181,16 @@
     Private Sub txtRating_TextChanged(sender As Object, e As EventArgs) Handles txtRating.TextChanged
         PerformValidation()
     End Sub
+    Private Sub txtWaterprice_TextChanged(sender As Object, e As EventArgs) Handles txtWaterprice.TextChanged
+        PerformValidation()
+    End Sub
+    Private Sub txtGallons_TextChanged(sender As Object, e As EventArgs) Handles txtGallons.TextChanged
+        PerformValidation()
+    End Sub
+
 
     Private Sub cmbAppliance_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAppliance.SelectedIndexChanged
         CheckFields()
     End Sub
+
 End Class

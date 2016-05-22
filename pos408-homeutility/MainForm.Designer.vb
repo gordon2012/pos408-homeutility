@@ -53,13 +53,13 @@ Partial Class MainForm
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.txtWaterprice = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.pnlWaterprice = New System.Windows.Forms.Panel()
         Me.lblWaterprice = New System.Windows.Forms.Label()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.txtGallons = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.pnlGallons = New System.Windows.Forms.Panel()
         Me.lblGallons = New System.Windows.Forms.Label()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.pnlWater = New System.Windows.Forms.Panel()
@@ -76,10 +76,10 @@ Partial Class MainForm
         Me.pnlRating.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
-        Me.Panel6.SuspendLayout()
+        Me.pnlWaterprice.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel9.SuspendLayout()
-        Me.Panel10.SuspendLayout()
+        Me.pnlGallons.SuspendLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlWater.SuspendLayout()
         Me.pnlButton.SuspendLayout()
@@ -348,7 +348,7 @@ Partial Class MainForm
         '
         Me.Panel4.Controls.Add(Me.txtWaterprice)
         Me.Panel4.Controls.Add(Me.Label2)
-        Me.Panel4.Controls.Add(Me.Panel6)
+        Me.Panel4.Controls.Add(Me.pnlWaterprice)
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(700, 30)
@@ -372,14 +372,14 @@ Partial Class MainForm
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Price per gallon ($)"
         '
-        'Panel6
+        'pnlWaterprice
         '
-        Me.Panel6.Controls.Add(Me.lblWaterprice)
-        Me.Panel6.Controls.Add(Me.PictureBox4)
-        Me.Panel6.Location = New System.Drawing.Point(138, 0)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(561, 30)
-        Me.Panel6.TabIndex = 15
+        Me.pnlWaterprice.Controls.Add(Me.lblWaterprice)
+        Me.pnlWaterprice.Controls.Add(Me.PictureBox4)
+        Me.pnlWaterprice.Location = New System.Drawing.Point(138, 0)
+        Me.pnlWaterprice.Name = "pnlWaterprice"
+        Me.pnlWaterprice.Size = New System.Drawing.Size(561, 30)
+        Me.pnlWaterprice.TabIndex = 15
         '
         'lblWaterprice
         '
@@ -406,7 +406,7 @@ Partial Class MainForm
         '
         Me.Panel9.Controls.Add(Me.txtGallons)
         Me.Panel9.Controls.Add(Me.Label9)
-        Me.Panel9.Controls.Add(Me.Panel10)
+        Me.Panel9.Controls.Add(Me.pnlGallons)
         Me.Panel9.Location = New System.Drawing.Point(0, 30)
         Me.Panel9.Name = "Panel9"
         Me.Panel9.Size = New System.Drawing.Size(700, 30)
@@ -430,14 +430,14 @@ Partial Class MainForm
         Me.Label9.TabIndex = 2
         Me.Label9.Text = "Water per hour (gal)"
         '
-        'Panel10
+        'pnlGallons
         '
-        Me.Panel10.Controls.Add(Me.lblGallons)
-        Me.Panel10.Controls.Add(Me.PictureBox5)
-        Me.Panel10.Location = New System.Drawing.Point(138, 0)
-        Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(561, 30)
-        Me.Panel10.TabIndex = 15
+        Me.pnlGallons.Controls.Add(Me.lblGallons)
+        Me.pnlGallons.Controls.Add(Me.PictureBox5)
+        Me.pnlGallons.Location = New System.Drawing.Point(138, 0)
+        Me.pnlGallons.Name = "pnlGallons"
+        Me.pnlGallons.Size = New System.Drawing.Size(561, 30)
+        Me.pnlGallons.TabIndex = 15
         '
         'lblGallons
         '
@@ -522,13 +522,13 @@ Partial Class MainForm
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
-        Me.Panel6.ResumeLayout(False)
-        Me.Panel6.PerformLayout()
+        Me.pnlWaterprice.ResumeLayout(False)
+        Me.pnlWaterprice.PerformLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel9.ResumeLayout(False)
         Me.Panel9.PerformLayout()
-        Me.Panel10.ResumeLayout(False)
-        Me.Panel10.PerformLayout()
+        Me.pnlGallons.ResumeLayout(False)
+        Me.pnlGallons.PerformLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlWater.ResumeLayout(False)
         Me.pnlButton.ResumeLayout(False)
@@ -569,13 +569,13 @@ Partial Class MainForm
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents txtWaterprice As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Panel6 As System.Windows.Forms.Panel
+    Friend WithEvents pnlWaterprice As System.Windows.Forms.Panel
     Friend WithEvents lblWaterprice As System.Windows.Forms.Label
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
     Friend WithEvents Panel9 As System.Windows.Forms.Panel
     Friend WithEvents txtGallons As System.Windows.Forms.TextBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Panel10 As System.Windows.Forms.Panel
+    Friend WithEvents pnlGallons As System.Windows.Forms.Panel
     Friend WithEvents lblGallons As System.Windows.Forms.Label
     Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
     Friend WithEvents pnlWater As System.Windows.Forms.Panel
