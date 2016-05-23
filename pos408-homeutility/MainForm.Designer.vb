@@ -31,7 +31,7 @@ Partial Class MainForm
         Me.lblDaily = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lblDebug = New System.Windows.Forms.Label()
-        Me.tmrError = New System.Windows.Forms.Timer(Me.components)
+        Me.tmrValidation = New System.Windows.Forms.Timer(Me.components)
         Me.lblHours = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -65,6 +65,8 @@ Partial Class MainForm
         Me.pnlWater = New System.Windows.Forms.Panel()
         Me.pnlButton = New System.Windows.Forms.Panel()
         Me.pnlList = New System.Windows.Forms.Panel()
+        Me.tlpListing = New System.Windows.Forms.TableLayoutPanel()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel7.SuspendLayout()
@@ -166,9 +168,9 @@ Partial Class MainForm
         Me.lblDebug.TabIndex = 17
         Me.lblDebug.Text = "????"
         '
-        'tmrError
+        'tmrValidation
         '
-        Me.tmrError.Interval = 3000
+        Me.tmrValidation.Interval = 250
         '
         'lblHours
         '
@@ -483,11 +485,34 @@ Partial Class MainForm
         'pnlList
         '
         Me.pnlList.BackColor = System.Drawing.SystemColors.Control
+        Me.pnlList.Controls.Add(Me.ListBox1)
+        Me.pnlList.Controls.Add(Me.tlpListing)
         Me.pnlList.Controls.Add(Me.lblDebug)
         Me.pnlList.Location = New System.Drawing.Point(12, 269)
         Me.pnlList.Name = "pnlList"
         Me.pnlList.Size = New System.Drawing.Size(700, 285)
         Me.pnlList.TabIndex = 23
+        '
+        'tlpListing
+        '
+        Me.tlpListing.ColumnCount = 3
+        Me.tlpListing.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpListing.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90.0!))
+        Me.tlpListing.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109.0!))
+        Me.tlpListing.Location = New System.Drawing.Point(24, 22)
+        Me.tlpListing.Name = "tlpListing"
+        Me.tlpListing.RowCount = 1
+        Me.tlpListing.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpListing.Size = New System.Drawing.Size(494, 244)
+        Me.tlpListing.TabIndex = 18
+        '
+        'ListBox1
+        '
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.Location = New System.Drawing.Point(547, 35)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(109, 147)
+        Me.ListBox1.TabIndex = 19
         '
         'MainForm
         '
@@ -547,7 +572,7 @@ Partial Class MainForm
     Friend WithEvents lblDaily As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents lblDebug As System.Windows.Forms.Label
-    Friend WithEvents tmrError As System.Windows.Forms.Timer
+    Friend WithEvents tmrValidation As System.Windows.Forms.Timer
     Friend WithEvents lblHours As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Panel7 As System.Windows.Forms.Panel
@@ -581,5 +606,7 @@ Partial Class MainForm
     Friend WithEvents pnlWater As System.Windows.Forms.Panel
     Friend WithEvents pnlButton As System.Windows.Forms.Panel
     Friend WithEvents pnlList As System.Windows.Forms.Panel
+    Friend WithEvents tlpListing As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
 
 End Class

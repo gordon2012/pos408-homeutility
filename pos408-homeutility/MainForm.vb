@@ -77,7 +77,7 @@
     Private Sub PerformValidation()
         ' TODO add validation for washer
 
-        DebugLog("Test Validation")
+        'DebugLog("Test Validation")
 
         Dim valid As Boolean = True
 
@@ -103,7 +103,7 @@
 
         ' Washer validation
         If cmbAppliance.SelectedIndex = 6 Then
-            DebugLog("VALIDATION -> water")
+            'DebugLog("VALIDATION -> water")
             If Not txtWaterprice.Text = String.Empty Then
                 valid = valid And ValidateIsNumber(txtWaterprice, waterprice)
             Else
@@ -166,6 +166,8 @@
         '
         lblDaily.Text = FormatCurrency(rating * hours * cost)
 
+        'tlpListing.
+
         DebugLog(cmbAppliance.SelectedIndex.ToString())
     End Sub
 
@@ -193,4 +195,7 @@
         CheckFields()
     End Sub
 
+    Private Sub tmrValidation_Tick(sender As Object, e As EventArgs) Handles tmrValidation.Tick
+
+    End Sub
 End Class
