@@ -65,8 +65,10 @@ Partial Class MainForm
         Me.pnlWater = New System.Windows.Forms.Panel()
         Me.pnlButton = New System.Windows.Forms.Panel()
         Me.pnlList = New System.Windows.Forms.Panel()
-        Me.tlpListing = New System.Windows.Forms.TableLayoutPanel()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.lsvAppliance = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel7.SuspendLayout()
@@ -162,7 +164,7 @@ Partial Class MainForm
         Me.lblDebug.BackColor = System.Drawing.Color.Transparent
         Me.lblDebug.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDebug.ForeColor = System.Drawing.Color.Black
-        Me.lblDebug.Location = New System.Drawing.Point(3, 3)
+        Me.lblDebug.Location = New System.Drawing.Point(372, 9)
         Me.lblDebug.Name = "lblDebug"
         Me.lblDebug.Size = New System.Drawing.Size(36, 16)
         Me.lblDebug.TabIndex = 17
@@ -475,6 +477,7 @@ Partial Class MainForm
         '
         Me.pnlButton.BackColor = System.Drawing.SystemColors.Control
         Me.pnlButton.Controls.Add(Me.lblDaily)
+        Me.pnlButton.Controls.Add(Me.lblDebug)
         Me.pnlButton.Controls.Add(Me.Label5)
         Me.pnlButton.Controls.Add(Me.btnCalculate)
         Me.pnlButton.Location = New System.Drawing.Point(12, 234)
@@ -485,34 +488,38 @@ Partial Class MainForm
         'pnlList
         '
         Me.pnlList.BackColor = System.Drawing.SystemColors.Control
-        Me.pnlList.Controls.Add(Me.ListBox1)
-        Me.pnlList.Controls.Add(Me.tlpListing)
-        Me.pnlList.Controls.Add(Me.lblDebug)
+        Me.pnlList.Controls.Add(Me.lsvAppliance)
         Me.pnlList.Location = New System.Drawing.Point(12, 269)
         Me.pnlList.Name = "pnlList"
         Me.pnlList.Size = New System.Drawing.Size(700, 285)
         Me.pnlList.TabIndex = 23
         '
-        'tlpListing
+        'lsvAppliance
         '
-        Me.tlpListing.ColumnCount = 3
-        Me.tlpListing.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpListing.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90.0!))
-        Me.tlpListing.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109.0!))
-        Me.tlpListing.Location = New System.Drawing.Point(24, 22)
-        Me.tlpListing.Name = "tlpListing"
-        Me.tlpListing.RowCount = 1
-        Me.tlpListing.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpListing.Size = New System.Drawing.Size(494, 244)
-        Me.tlpListing.TabIndex = 18
+        Me.lsvAppliance.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
+        Me.lsvAppliance.FullRowSelect = True
+        Me.lsvAppliance.GridLines = True
+        Me.lsvAppliance.Location = New System.Drawing.Point(6, 6)
+        Me.lsvAppliance.Name = "lsvAppliance"
+        Me.lsvAppliance.Size = New System.Drawing.Size(691, 276)
+        Me.lsvAppliance.TabIndex = 21
+        Me.lsvAppliance.UseCompatibleStateImageBehavior = False
+        Me.lsvAppliance.View = System.Windows.Forms.View.Details
         '
-        'ListBox1
+        'ColumnHeader1
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(547, 35)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(109, 147)
-        Me.ListBox1.TabIndex = 19
+        Me.ColumnHeader1.Text = "Appliance"
+        Me.ColumnHeader1.Width = 223
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Hours per day"
+        Me.ColumnHeader2.Width = 223
+        '
+        'ColumnHeader3
+        '
+        Me.ColumnHeader3.Text = "Daily Cost"
+        Me.ColumnHeader3.Width = 223
         '
         'MainForm
         '
@@ -559,7 +566,6 @@ Partial Class MainForm
         Me.pnlButton.ResumeLayout(False)
         Me.pnlButton.PerformLayout()
         Me.pnlList.ResumeLayout(False)
-        Me.pnlList.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -606,7 +612,9 @@ Partial Class MainForm
     Friend WithEvents pnlWater As System.Windows.Forms.Panel
     Friend WithEvents pnlButton As System.Windows.Forms.Panel
     Friend WithEvents pnlList As System.Windows.Forms.Panel
-    Friend WithEvents tlpListing As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
+    Friend WithEvents lsvAppliance As System.Windows.Forms.ListView
+    Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
 
 End Class

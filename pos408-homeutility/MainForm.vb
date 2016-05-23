@@ -156,17 +156,36 @@
         PerformValidation()
 
         lblDebug.Text = ""
-        DebugLog("This is a test of debug log")
-        DebugLog("The quick brown fox jumped over the lazy dog")
+        'DebugLog("This is a test of debug log")
+        'DebugLog("The quick brown fox jumped over the lazy dog")
         CheckFields()
     End Sub
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
         ' Input has already been validated
         '
-        lblDaily.Text = FormatCurrency(rating * hours * cost)
+        ' TODO: add water calculation
+        '
+        Dim dailyCost As String = FormatCurrency(rating * hours * cost)
+        lblDaily.Text = dailyCost
 
         'tlpListing.
+
+        'lstAppliance.Items.Add(cmbAppliance.SelectedItem.ToString())
+        'lstCost.Items.Add(dailyCost)
+
+
+        ' Add to listing
+
+        Dim item = New ListViewItem(cmbAppliance.SelectedItem.ToString())
+        item.SubItems.Add(hours.ToString())
+        item.SubItems.Add(dailyCost)
+        lsvAppliance.Items.Add(item)
+
+
+
+
+        'cmbAppliance.
 
         DebugLog(cmbAppliance.SelectedIndex.ToString())
     End Sub
