@@ -28,7 +28,7 @@ Partial Class MainForm
         Me.btnCalculate = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.lblDaily = New System.Windows.Forms.Label()
+        Me.lblTotal = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lblDebug = New System.Windows.Forms.Label()
         Me.tmrValidation = New System.Windows.Forms.Timer(Me.components)
@@ -134,21 +134,21 @@ Partial Class MainForm
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(221, 9)
+        Me.Label5.Location = New System.Drawing.Point(407, 269)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(72, 16)
+        Me.Label5.Size = New System.Drawing.Size(42, 16)
         Me.Label5.TabIndex = 8
-        Me.Label5.Text = "Daily Cost:"
+        Me.Label5.Text = "Total:"
         '
-        'lblDaily
+        'lblTotal
         '
-        Me.lblDaily.AutoSize = True
-        Me.lblDaily.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDaily.Location = New System.Drawing.Point(299, 9)
-        Me.lblDaily.Name = "lblDaily"
-        Me.lblDaily.Size = New System.Drawing.Size(36, 16)
-        Me.lblDaily.TabIndex = 0
-        Me.lblDaily.Text = "$$$$"
+        Me.lblTotal.AutoSize = True
+        Me.lblTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotal.Location = New System.Drawing.Point(457, 269)
+        Me.lblTotal.Name = "lblTotal"
+        Me.lblTotal.Size = New System.Drawing.Size(36, 16)
+        Me.lblTotal.TabIndex = 0
+        Me.lblTotal.Text = "$$$$"
         '
         'Panel3
         '
@@ -477,9 +477,7 @@ Partial Class MainForm
         'pnlButton
         '
         Me.pnlButton.BackColor = System.Drawing.SystemColors.Control
-        Me.pnlButton.Controls.Add(Me.lblDaily)
         Me.pnlButton.Controls.Add(Me.lblDebug)
-        Me.pnlButton.Controls.Add(Me.Label5)
         Me.pnlButton.Controls.Add(Me.btnCalculate)
         Me.pnlButton.Location = New System.Drawing.Point(12, 234)
         Me.pnlButton.Name = "pnlButton"
@@ -489,7 +487,9 @@ Partial Class MainForm
         'pnlList
         '
         Me.pnlList.BackColor = System.Drawing.SystemColors.Control
+        Me.pnlList.Controls.Add(Me.lblTotal)
         Me.pnlList.Controls.Add(Me.lsvAppliance)
+        Me.pnlList.Controls.Add(Me.Label5)
         Me.pnlList.Location = New System.Drawing.Point(12, 269)
         Me.pnlList.Name = "pnlList"
         Me.pnlList.Size = New System.Drawing.Size(700, 285)
@@ -503,7 +503,7 @@ Partial Class MainForm
         Me.lsvAppliance.GridLines = True
         Me.lsvAppliance.Location = New System.Drawing.Point(6, 6)
         Me.lsvAppliance.Name = "lsvAppliance"
-        Me.lsvAppliance.Size = New System.Drawing.Size(691, 276)
+        Me.lsvAppliance.Size = New System.Drawing.Size(691, 250)
         Me.lsvAppliance.TabIndex = 21
         Me.lsvAppliance.UseCompatibleStateImageBehavior = False
         Me.lsvAppliance.View = System.Windows.Forms.View.Details
@@ -568,6 +568,7 @@ Partial Class MainForm
         Me.pnlButton.ResumeLayout(False)
         Me.pnlButton.PerformLayout()
         Me.pnlList.ResumeLayout(False)
+        Me.pnlList.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -577,7 +578,7 @@ Partial Class MainForm
     Friend WithEvents btnCalculate As System.Windows.Forms.Button
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents lblDaily As System.Windows.Forms.Label
+    Friend WithEvents lblTotal As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents lblDebug As System.Windows.Forms.Label
     Friend WithEvents tmrValidation As System.Windows.Forms.Timer

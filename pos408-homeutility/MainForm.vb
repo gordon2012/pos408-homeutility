@@ -24,6 +24,7 @@
     Dim waterprice As Double
     Dim gallons As Double
 
+    Dim total As Double = 0
 
     ' Displays validation error panel if the control's text is not a valid Double
     '
@@ -67,7 +68,7 @@
         pnlWaterprice.Visible = False
         pnlGallons.Visible = False
 
-        lblDaily.Text = ""
+
     End Sub
 
     ' Resets the output, does the validation, and enables the calculate button
@@ -146,6 +147,7 @@
         '
         PerformValidation()
 
+        lblTotal.Text = ""
         lblDebug.Text = ""
         'DebugLog("This is a test of debug log")
         'DebugLog("The quick brown fox jumped over the lazy dog")
@@ -166,6 +168,12 @@
         item.SubItems.Add(hours.ToString())
         item.SubItems.Add(FormatCurrency(dailyCost))
         lsvAppliance.Items.Add(item)
+
+        ' Total
+        '
+        total += dailyCost
+        lblTotal.Text = FormatCurrency(total)
+
 
         'DebugLog(cmbAppliance.SelectedIndex.ToString())
     End Sub
