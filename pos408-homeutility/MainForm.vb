@@ -4,14 +4,14 @@
     '           POS/408
     '          May 23, 2016
     '        Dr. Bill Spees
-
+    '
     ' This program calculates the daily cost of an appliance given its power
-    ' rating, hours used, and the price of electricity. A sensible default
-    ' value is given for each appliance that may be modified. Errors are logged
-    ' if valid Double values are not entered, the hours exceeds 24 or is below
-    ' 0, or the power rating is more than +/- 20% of the default.
-
-    ' TODO: week 3 description
+    ' rating, hours used, the price of electricity, and the gallons per hour
+    ' and cost per gallon if it is a Washer. Upon calculation, The appliance,
+    ' hours per day, and daily cost are added to a listing and the total is
+    ' calculated. Errors are displayed next to any field where valid Double
+    ' values are not entered, the hours field if it is not between 0 and 24,
+    ' and the power rating field if it is not between 0 and 1.5.
 
 
     Private Const MinRating = 0
@@ -59,7 +59,7 @@
         Me.Controls.Find("lbl" + control, True)(0).Text = text
     End Sub
 
-    ' Hides the validation error panels and clears the previous calculated daily cost
+    ' Hides the validation error panels
     '
     Private Sub ResetError()
         pnlCost.Visible = False
@@ -67,8 +67,6 @@
         pnlHours.Visible = False
         pnlWaterprice.Visible = False
         pnlGallons.Visible = False
-
-
     End Sub
 
     ' Resets the output, does the validation, and enables the calculate button
@@ -76,8 +74,6 @@
     ' that it will not enable the calculate button but not display an error
     '
     Private Sub PerformValidation()
-        'DebugLog("Test Validation")
-
         Dim valid As Boolean = True
 
         ResetError()
@@ -103,7 +99,6 @@
         ' Washer validation
         '
         If cmbAppliance.SelectedIndex = 6 Then
-            'DebugLog("VALIDATION -> water")
             If Not txtWaterprice.Text = String.Empty Then
                 valid = valid And ValidateIsNumber(txtWaterprice, waterprice)
             Else
@@ -120,9 +115,6 @@
         btnCalculate.Enabled = valid
     End Sub
 
-    Private Sub DebugLog(text As String)
-        lblDebug.Text += text + vbNewLine
-    End Sub
 
     Private Sub CheckFields()
         If cmbAppliance.SelectedIndex = 6 Then
@@ -148,9 +140,6 @@
         PerformValidation()
 
         lblTotal.Text = ""
-        lblDebug.Text = ""
-        'DebugLog("This is a test of debug log")
-        'DebugLog("The quick brown fox jumped over the lazy dog")
         CheckFields()
     End Sub
 
@@ -173,9 +162,6 @@
         '
         total += dailyCost
         lblTotal.Text = FormatCurrency(total)
-
-
-        'DebugLog(cmbAppliance.SelectedIndex.ToString())
     End Sub
 
     ' Validate all input when any textbox changes
@@ -197,13 +183,8 @@
         PerformValidation()
     End Sub
 
-
     Private Sub cmbAppliance_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAppliance.SelectedIndexChanged
         CheckFields()
         PerformValidation()
-    End Sub
-
-    Private Sub tmrValidation_Tick(sender As Object, e As EventArgs) Handles tmrValidation.Tick
-
     End Sub
 End Class

@@ -30,7 +30,6 @@ Partial Class MainForm
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.lblDebug = New System.Windows.Forms.Label()
         Me.tmrValidation = New System.Windows.Forms.Timer(Me.components)
         Me.lblHours = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -158,18 +157,6 @@ Partial Class MainForm
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(700, 30)
         Me.Panel3.TabIndex = 1
-        '
-        'lblDebug
-        '
-        Me.lblDebug.AutoSize = True
-        Me.lblDebug.BackColor = System.Drawing.Color.Transparent
-        Me.lblDebug.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDebug.ForeColor = System.Drawing.Color.Black
-        Me.lblDebug.Location = New System.Drawing.Point(372, 9)
-        Me.lblDebug.Name = "lblDebug"
-        Me.lblDebug.Size = New System.Drawing.Size(36, 16)
-        Me.lblDebug.TabIndex = 17
-        Me.lblDebug.Text = "????"
         '
         'tmrValidation
         '
@@ -477,7 +464,6 @@ Partial Class MainForm
         'pnlButton
         '
         Me.pnlButton.BackColor = System.Drawing.SystemColors.Control
-        Me.pnlButton.Controls.Add(Me.lblDebug)
         Me.pnlButton.Controls.Add(Me.btnCalculate)
         Me.pnlButton.Location = New System.Drawing.Point(12, 234)
         Me.pnlButton.Name = "pnlButton"
@@ -566,7 +552,6 @@ Partial Class MainForm
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlWater.ResumeLayout(False)
         Me.pnlButton.ResumeLayout(False)
-        Me.pnlButton.PerformLayout()
         Me.pnlList.ResumeLayout(False)
         Me.pnlList.PerformLayout()
         Me.ResumeLayout(False)
@@ -580,7 +565,6 @@ Partial Class MainForm
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents lblTotal As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents lblDebug As System.Windows.Forms.Label
     Friend WithEvents tmrValidation As System.Windows.Forms.Timer
     Friend WithEvents lblHours As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
