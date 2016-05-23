@@ -498,6 +498,7 @@ Partial Class MainForm
         'lsvAppliance
         '
         Me.lsvAppliance.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
+        Me.lsvAppliance.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lsvAppliance.FullRowSelect = True
         Me.lsvAppliance.GridLines = True
         Me.lsvAppliance.Location = New System.Drawing.Point(6, 6)
