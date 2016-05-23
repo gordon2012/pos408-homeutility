@@ -116,7 +116,7 @@ Partial Class MainForm
         Me.btnCalculate.Location = New System.Drawing.Point(3, 3)
         Me.btnCalculate.Name = "btnCalculate"
         Me.btnCalculate.Size = New System.Drawing.Size(193, 29)
-        Me.btnCalculate.TabIndex = 4
+        Me.btnCalculate.TabIndex = 1
         Me.btnCalculate.Text = "Calculate"
         Me.btnCalculate.UseVisualStyleBackColor = True
         '
@@ -249,7 +249,7 @@ Partial Class MainForm
         Me.txtCost.Location = New System.Drawing.Point(142, 4)
         Me.txtCost.Name = "txtCost"
         Me.txtCost.Size = New System.Drawing.Size(290, 22)
-        Me.txtCost.TabIndex = 0
+        Me.txtCost.TabIndex = 1
         '
         'Label8
         '
@@ -357,7 +357,7 @@ Partial Class MainForm
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(700, 30)
-        Me.Panel4.TabIndex = 1
+        Me.Panel4.TabIndex = 0
         '
         'txtWaterprice
         '
@@ -423,7 +423,7 @@ Partial Class MainForm
         Me.txtGallons.Location = New System.Drawing.Point(142, 4)
         Me.txtGallons.Name = "txtGallons"
         Me.txtGallons.Size = New System.Drawing.Size(290, 22)
-        Me.txtGallons.TabIndex = 2
+        Me.txtGallons.TabIndex = 1
         '
         'Label9
         '
@@ -432,7 +432,7 @@ Partial Class MainForm
         Me.Label9.Location = New System.Drawing.Point(3, 7)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(126, 16)
-        Me.Label9.TabIndex = 2
+        Me.Label9.TabIndex = 0
         Me.Label9.Text = "Water per hour (gal)"
         '
         'pnlGallons
@@ -472,7 +472,7 @@ Partial Class MainForm
         Me.pnlWater.Location = New System.Drawing.Point(12, 174)
         Me.pnlWater.Name = "pnlWater"
         Me.pnlWater.Size = New System.Drawing.Size(700, 60)
-        Me.pnlWater.TabIndex = 22
+        Me.pnlWater.TabIndex = 4
         '
         'pnlButton
         '
@@ -482,7 +482,7 @@ Partial Class MainForm
         Me.pnlButton.Location = New System.Drawing.Point(12, 234)
         Me.pnlButton.Name = "pnlButton"
         Me.pnlButton.Size = New System.Drawing.Size(700, 35)
-        Me.pnlButton.TabIndex = 23
+        Me.pnlButton.TabIndex = 5
         '
         'pnlList
         '
@@ -493,7 +493,7 @@ Partial Class MainForm
         Me.pnlList.Location = New System.Drawing.Point(12, 269)
         Me.pnlList.Name = "pnlList"
         Me.pnlList.Size = New System.Drawing.Size(700, 285)
-        Me.pnlList.TabIndex = 23
+        Me.pnlList.TabIndex = 6
         '
         'lsvAppliance
         '
@@ -504,7 +504,7 @@ Partial Class MainForm
         Me.lsvAppliance.Location = New System.Drawing.Point(6, 6)
         Me.lsvAppliance.Name = "lsvAppliance"
         Me.lsvAppliance.Size = New System.Drawing.Size(691, 250)
-        Me.lsvAppliance.TabIndex = 21
+        Me.lsvAppliance.TabIndex = 1
         Me.lsvAppliance.UseCompatibleStateImageBehavior = False
         Me.lsvAppliance.View = System.Windows.Forms.View.Details
         '
