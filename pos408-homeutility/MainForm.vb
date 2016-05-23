@@ -164,30 +164,19 @@
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
         ' Input has already been validated
         '
-        ' TODO: add water calculation
-        '
-        Dim dailyCost As String = FormatCurrency(rating * hours * cost)
-        lblDaily.Text = dailyCost
-
-        'tlpListing.
-
-        'lstAppliance.Items.Add(cmbAppliance.SelectedItem.ToString())
-        'lstCost.Items.Add(dailyCost)
-
+        Dim dailyCost As Double = hours * rating * cost
+        If cmbAppliance.SelectedIndex = 6 Then
+            dailyCost += hours * waterprice * gallons
+        End If
 
         ' Add to listing
-
+        '
         Dim item = New ListViewItem(cmbAppliance.SelectedItem.ToString())
         item.SubItems.Add(hours.ToString())
-        item.SubItems.Add(dailyCost)
+        item.SubItems.Add(FormatCurrency(dailyCost))
         lsvAppliance.Items.Add(item)
 
-
-
-
-        'cmbAppliance.
-
-        DebugLog(cmbAppliance.SelectedIndex.ToString())
+        'DebugLog(cmbAppliance.SelectedIndex.ToString())
     End Sub
 
     ' Validate all input when any textbox changes
@@ -212,6 +201,7 @@
 
     Private Sub cmbAppliance_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAppliance.SelectedIndexChanged
         CheckFields()
+        PerformValidation()
     End Sub
 
     Private Sub tmrValidation_Tick(sender As Object, e As EventArgs) Handles tmrValidation.Tick
