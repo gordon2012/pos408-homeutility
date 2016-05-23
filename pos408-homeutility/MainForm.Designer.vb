@@ -102,6 +102,7 @@ Partial Class MainForm
         '
         'cmbAppliance
         '
+        Me.cmbAppliance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbAppliance.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbAppliance.FormattingEnabled = True
         Me.cmbAppliance.Location = New System.Drawing.Point(142, 0)
