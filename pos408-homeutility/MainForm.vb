@@ -75,8 +75,6 @@
     ' that it will not enable the calculate button but not display an error
     '
     Private Sub PerformValidation()
-        ' TODO add validation for washer
-
         'DebugLog("Test Validation")
 
         Dim valid As Boolean = True
@@ -102,6 +100,7 @@
         End If
 
         ' Washer validation
+        '
         If cmbAppliance.SelectedIndex = 6 Then
             'DebugLog("VALIDATION -> water")
             If Not txtWaterprice.Text = String.Empty Then
@@ -125,18 +124,10 @@
     End Sub
 
     Private Sub CheckFields()
-        ' TODO: fix hardcodedness?
-        '
         If cmbAppliance.SelectedIndex = 6 Then
             pnlWater.Visible = True
-            pnlButton.Top = 234
-            pnlList.Top = 269
-            pnlList.Height = 285
         Else
             pnlWater.Visible = False
-            pnlButton.Top = 174
-            pnlList.Top = 209
-            pnlList.Height = 345
         End If
     End Sub
 
