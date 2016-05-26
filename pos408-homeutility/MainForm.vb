@@ -69,6 +69,12 @@
         pnlGallons.Visible = False
     End Sub
 
+    ' Hide a particular error panel
+    '
+    Private Sub ResetError(control As Control)
+        control.Visible = False
+    End Sub
+
     ' Resets the output, does the validation, and enables the calculate button
     ' if successful. The validation will silently fail on empty input, meaning
     ' that it will not enable the calculate button but not display an error
@@ -114,6 +120,10 @@
 
         btnCalculate.Enabled = valid
     End Sub
+
+    ' TODO separate validation (disabling calculate button) from error labels
+
+
 
 
     Private Sub CheckFields()
@@ -168,23 +178,62 @@
     ' TODO: introduce delay to prevent flashing
     '
     Private Sub txtCost_TextChanged(sender As Object, e As EventArgs) Handles txtCost.TextChanged
-        PerformValidation()
+        'PerformValidation()
     End Sub
     Private Sub txtHours_TextChanged(sender As Object, e As EventArgs) Handles txtHours.TextChanged
-        PerformValidation()
+        'PerformValidation()
     End Sub
     Private Sub txtRating_TextChanged(sender As Object, e As EventArgs) Handles txtRating.TextChanged
-        PerformValidation()
+        'PerformValidation()
     End Sub
     Private Sub txtWaterprice_TextChanged(sender As Object, e As EventArgs) Handles txtWaterprice.TextChanged
-        PerformValidation()
+        'PerformValidation()
     End Sub
     Private Sub txtGallons_TextChanged(sender As Object, e As EventArgs) Handles txtGallons.TextChanged
-        PerformValidation()
+        'PerformValidation()
     End Sub
+
+
 
     Private Sub cmbAppliance_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAppliance.SelectedIndexChanged
         CheckFields()
         PerformValidation()
     End Sub
+
+
+    ' txtCost
+    '
+    Private Sub txtCost_Leave(sender As Object, e As EventArgs) Handles txtCost.Leave
+        PerformValidation()
+    End Sub
+
+    Private Sub txtCost_Enter(sender As Object, e As EventArgs) Handles txtCost.Enter
+        ResetError(pnlCost)
+    End Sub
+
+    ' txtRating
+    '
+    Private Sub txtRating_Leave(sender As Object, e As EventArgs) Handles txtRating.Leave
+        PerformValidation()
+    End Sub
+
+    Private Sub txtCost_Rating(sender As Object, e As EventArgs) Handles txtRating.Enter
+        ResetError(pnlRating)
+    End Sub
+
+    ' txtHours
+    '
+    Private Sub txtHours_Leave(sender As Object, e As EventArgs) Handles txtHours.Leave
+        PerformValidation()
+    End Sub
+
+    Private Sub txtCost_Hours(sender As Object, e As EventArgs) Handles txtHours.Enter
+        ResetError(pnlRating)
+    End Sub
+
+
+
+
+
+
 End Class
