@@ -4,7 +4,7 @@ Public Class MainForm
     ' Enhanced Home Utility Auditing Program
     '        Gordon Doskas
     '           POS/408
-    '          May 23, 2016
+    '          May 30, 2016
     '        Dr. Bill Spees
     '
     ' This program calculates the daily cost of an appliance given its power
@@ -13,14 +13,17 @@ Public Class MainForm
     ' hours per day, and daily cost are added to a listing and the total is
     ' calculated. Errors are displayed next to any field where valid Double
     ' values are not entered, the hours field if it is not between 0 and 24,
-    ' and the power rating field if it is not between 0 and 1.5.
+    ' and the power rating field if it is not between 0 and 1.5, and only for
+    ' the fields out of focus. The ratings text box is populated with a
+    ' default value supplied by a text file that the user can change. Finally,
+    ' the user can save an export of the listing to a file.
 
 
     Private Const MinRating = 0
     Private Const MaxRating = 1.5
 
 
-    ' File names
+    ' Export and import filenames and stream objects
     '
     Private Const ExportFileName = "export.txt"
     Dim exportFile As StreamWriter
@@ -28,7 +31,6 @@ Public Class MainForm
     Private Const RatingsFileName = "ratings.txt"
     Dim ratingsFile As StreamReader
     Dim defaultRatings() As Double = {}
-
 
 
     Dim rating As Double
@@ -214,14 +216,11 @@ Public Class MainForm
         exportFile.Close()
 
         lblSaved.Visible = True
-        'tmrSaved.Start()
         tmrSaved.Enabled = True
-
     End Sub
 
 
     ' Validate all input when any textbox changes as far as the calculate button is concerned, but only display error for input out of focus
-    ' TODO: introduce delay to prevent flashing
     '
     Private Sub txtCost_TextChanged(sender As Object, e As EventArgs) Handles txtCost.TextChanged, txtCost.Leave, txtCost.Enter
         PerformValidation()
