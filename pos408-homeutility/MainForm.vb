@@ -1,4 +1,6 @@
-﻿Public Class MainForm
+﻿Imports System.IO
+
+Public Class MainForm
     ' Enhanced Home Utility Auditing Program
     '        Gordon Doskas
     '           POS/408
@@ -16,6 +18,15 @@
 
     Private Const MinRating = 0
     Private Const MaxRating = 1.5
+
+
+    ' File names
+    '
+    Private Const ExportFileName = "export.txt"
+
+    Dim exportFile As StreamWriter
+
+
 
     Dim rating As Double
     Dim hours As Double
@@ -171,6 +182,21 @@
         total += dailyCost
         lblTotal.Text = FormatCurrency(total)
     End Sub
+
+
+    Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
+        Dim exportString As String = "Appliance" + vbTab + "Hours per day" + vbTab + "Daily Cost" + vbNewLine + _
+                                     "=========" + vbTab + "=============" + vbTab + "=========="
+
+        For Each item As ListViewItem In lsvAppliance.Items
+            exportString += vbNewLine + item.SubItems(0).Text + If(item.SubItems(0).Text.Length < 8, vbTab + vbTab, vbTab) + item.SubItems(1).Text + vbTab + vbTab + item.SubItems(2).Text
+        Next
+
+        exportFile = New StreamWriter(ExportFileName, False)
+        exportFile.WriteLine(exportString)
+        exportFile.Close()
+    End Sub
+
 
     ' Validate all input when any textbox changes as far as the calculate button is concerned, but only display error for input out of focus
     ' TODO: introduce delay to prevent flashing

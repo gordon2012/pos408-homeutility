@@ -68,6 +68,7 @@ Partial Class MainForm
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.btnExport = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel7.SuspendLayout()
@@ -464,6 +465,7 @@ Partial Class MainForm
         'pnlButton
         '
         Me.pnlButton.BackColor = System.Drawing.SystemColors.Control
+        Me.pnlButton.Controls.Add(Me.btnExport)
         Me.pnlButton.Controls.Add(Me.btnCalculate)
         Me.pnlButton.Location = New System.Drawing.Point(12, 234)
         Me.pnlButton.Name = "pnlButton"
@@ -508,6 +510,16 @@ Partial Class MainForm
         '
         Me.ColumnHeader3.Text = "Daily Cost"
         Me.ColumnHeader3.Width = 223
+        '
+        'btnExport
+        '
+        Me.btnExport.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExport.Location = New System.Drawing.Point(202, 3)
+        Me.btnExport.Name = "btnExport"
+        Me.btnExport.Size = New System.Drawing.Size(193, 29)
+        Me.btnExport.TabIndex = 2
+        Me.btnExport.Text = "Export"
+        Me.btnExport.UseVisualStyleBackColor = True
         '
         'MainForm
         '
@@ -603,5 +615,6 @@ Partial Class MainForm
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents btnExport As System.Windows.Forms.Button
 
 End Class
