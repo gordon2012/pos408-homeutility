@@ -30,7 +30,7 @@ Partial Class MainForm
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.tmrValidation = New System.Windows.Forms.Timer(Me.components)
+        Me.tmrSaved = New System.Windows.Forms.Timer(Me.components)
         Me.lblHours = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -63,12 +63,13 @@ Partial Class MainForm
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.pnlWater = New System.Windows.Forms.Panel()
         Me.pnlButton = New System.Windows.Forms.Panel()
+        Me.btnExport = New System.Windows.Forms.Button()
         Me.pnlList = New System.Windows.Forms.Panel()
         Me.lsvAppliance = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.btnExport = New System.Windows.Forms.Button()
+        Me.lblSaved = New System.Windows.Forms.Label()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel7.SuspendLayout()
@@ -159,9 +160,9 @@ Partial Class MainForm
         Me.Panel3.Size = New System.Drawing.Size(700, 30)
         Me.Panel3.TabIndex = 1
         '
-        'tmrValidation
+        'tmrSaved
         '
-        Me.tmrValidation.Interval = 250
+        Me.tmrSaved.Interval = 3000
         '
         'lblHours
         '
@@ -465,12 +466,23 @@ Partial Class MainForm
         'pnlButton
         '
         Me.pnlButton.BackColor = System.Drawing.SystemColors.Control
+        Me.pnlButton.Controls.Add(Me.lblSaved)
         Me.pnlButton.Controls.Add(Me.btnExport)
         Me.pnlButton.Controls.Add(Me.btnCalculate)
         Me.pnlButton.Location = New System.Drawing.Point(12, 234)
         Me.pnlButton.Name = "pnlButton"
         Me.pnlButton.Size = New System.Drawing.Size(700, 35)
         Me.pnlButton.TabIndex = 5
+        '
+        'btnExport
+        '
+        Me.btnExport.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExport.Location = New System.Drawing.Point(202, 3)
+        Me.btnExport.Name = "btnExport"
+        Me.btnExport.Size = New System.Drawing.Size(193, 29)
+        Me.btnExport.TabIndex = 2
+        Me.btnExport.Text = "Save"
+        Me.btnExport.UseVisualStyleBackColor = True
         '
         'pnlList
         '
@@ -511,15 +523,16 @@ Partial Class MainForm
         Me.ColumnHeader3.Text = "Daily Cost"
         Me.ColumnHeader3.Width = 223
         '
-        'btnExport
+        'lblSaved
         '
-        Me.btnExport.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExport.Location = New System.Drawing.Point(202, 3)
-        Me.btnExport.Name = "btnExport"
-        Me.btnExport.Size = New System.Drawing.Size(193, 29)
-        Me.btnExport.TabIndex = 2
-        Me.btnExport.Text = "Export"
-        Me.btnExport.UseVisualStyleBackColor = True
+        Me.lblSaved.AutoSize = True
+        Me.lblSaved.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSaved.Location = New System.Drawing.Point(401, 9)
+        Me.lblSaved.Name = "lblSaved"
+        Me.lblSaved.Size = New System.Drawing.Size(51, 16)
+        Me.lblSaved.TabIndex = 16
+        Me.lblSaved.Text = "Saved!"
+        Me.lblSaved.Visible = False
         '
         'MainForm
         '
@@ -564,6 +577,7 @@ Partial Class MainForm
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlWater.ResumeLayout(False)
         Me.pnlButton.ResumeLayout(False)
+        Me.pnlButton.PerformLayout()
         Me.pnlList.ResumeLayout(False)
         Me.pnlList.PerformLayout()
         Me.ResumeLayout(False)
@@ -577,7 +591,7 @@ Partial Class MainForm
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents lblTotal As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents tmrValidation As System.Windows.Forms.Timer
+    Friend WithEvents tmrSaved As System.Windows.Forms.Timer
     Friend WithEvents lblHours As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Panel7 As System.Windows.Forms.Panel
@@ -616,5 +630,6 @@ Partial Class MainForm
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
     Friend WithEvents btnExport As System.Windows.Forms.Button
+    Friend WithEvents lblSaved As System.Windows.Forms.Label
 
 End Class

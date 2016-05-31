@@ -212,6 +212,11 @@ Public Class MainForm
         exportFile = New StreamWriter(ExportFileName, False)
         exportFile.WriteLine(exportString)
         exportFile.Close()
+
+        lblSaved.Visible = True
+        'tmrSaved.Start()
+        tmrSaved.Enabled = True
+
     End Sub
 
 
@@ -237,5 +242,10 @@ Public Class MainForm
     Private Sub cmbAppliance_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAppliance.SelectedIndexChanged
         CheckFields()
         PerformValidation()
+    End Sub
+
+    Private Sub tmrSaved_Tick(sender As Object, e As EventArgs) Handles tmrSaved.Tick
+        lblSaved.Visible = False
+        tmrSaved.Enabled = False
     End Sub
 End Class
