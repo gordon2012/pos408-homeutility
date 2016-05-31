@@ -23,8 +23,11 @@ Public Class MainForm
     ' File names
     '
     Private Const ExportFileName = "export.txt"
-
     Dim exportFile As StreamWriter
+
+    Private Const RatingsFileName = "ratings.txt"
+    Dim ratingsFile As StreamReader
+    Dim defaultRatings() As Double = {}
 
 
 
@@ -131,14 +134,17 @@ Public Class MainForm
     End Sub
 
 
-    ' TODO: separate validation (disabling calculate button) from error labels
-
-
     Private Sub CheckFields()
         If cmbAppliance.SelectedIndex = 6 Then
             pnlWater.Visible = True
         Else
             pnlWater.Visible = False
+        End If
+
+        ' Default ratings
+        '
+        If defaultRatings.Length > 0 Then
+            txtRating.Text = defaultRatings(cmbAppliance.SelectedIndex).ToString()
         End If
     End Sub
 
@@ -152,6 +158,17 @@ Public Class MainForm
         '
         Dim applianceList() As String = {"Refrigerator", "Hair dryer", "Fan", "Microwave", "Computer", "Television", "Washer"}
         cmbAppliance.DataSource = New BindingSource(applianceList, Nothing)
+
+        ' Default ratings
+        '
+        Dim ratingsList As New List(Of Double)
+        ratingsFile = File.OpenText(RatingsFileName)
+        Do Until ratingsFile.EndOfStream
+            ratingsList.Add(Double.Parse(ratingsFile.ReadLine()))
+        Loop
+        ratingsFile.Close()
+
+        defaultRatings = ratingsList.ToArray()
 
         ' Initial validation
         '
